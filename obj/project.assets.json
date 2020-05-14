@@ -8230,11 +8230,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Hugo\\source\\repos\\Beer_Vendas\\Beer_Vendas.csproj",
+      "projectUniqueName": "C:\\Users\\Hugo\\Documents\\GitHub\\Beer_Vendas\\Beer_Vendas.csproj",
       "projectName": "Beer_Vendas",
-      "projectPath": "C:\\Users\\Hugo\\source\\repos\\Beer_Vendas\\Beer_Vendas.csproj",
+      "projectPath": "C:\\Users\\Hugo\\Documents\\GitHub\\Beer_Vendas\\Beer_Vendas.csproj",
       "packagesPath": "C:\\Users\\Hugo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Hugo\\source\\repos\\Beer_Vendas\\obj\\",
+      "outputPath": "C:\\Users\\Hugo\\Documents\\GitHub\\Beer_Vendas\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Hugo\\AppData\\Roaming\\NuGet\\NuGet.Config",
