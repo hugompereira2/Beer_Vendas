@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Beer_Vendas</title>
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="~/css/sb-admin-2.css" />
+    <link href="~/js/fontawesome-free/css/all.min.css" rel="stylesheet" />
+</head>
+<body>
+    <header>
+        <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 border-bottom bg-gradient-unique shadow-sm">
+            <div class="logo_beer rotate-n-15 text-white">
+                <i class="fas fa-beer"></i>
+            </div>
+            <h5 class="my-0 mr-md-auto text-white text_unique">Erlang Beer</h5>
+            <nav class="my-2 my-md-0 mr-md-3">
+                <a class="p-2 text-white" href="#">Catalogo</a>
+                <a class="p-2 text-white" href="#">Sobre</a>
+                <a class="p-2 text-white" href="#">Contato</a>
+                <a class="btn btn-outline-primary" href="#">Cadastre-se</a>
+            </nav>
+            <a class="btn btn-outline-primary" href="adm.html">Admin</a>
+        </div>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2020 - Beer_Vendas - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/js/jquery/jquery.js"></script>
+    <script src="~/js/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/js/sweetalert2.all.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

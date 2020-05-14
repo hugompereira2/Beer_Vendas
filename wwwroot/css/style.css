@@ -1,0 +1,16 @@
+  .background-img{
+      background-image: url(img/ice.jpg);
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: center center;
+      background-size: cover;
+  }
+.navbar_fixed{
+    width: 100%; 
+    background-color: white;
+    border: 1000px;
+}
+.logo_beer{
+  font-size: 2rem; 
+  margin-right: 2em;
+}

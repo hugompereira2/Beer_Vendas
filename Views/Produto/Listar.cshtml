@@ -1,0 +1,76 @@
+﻿
+@{
+    ViewData["Title"] = "Listar";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<!-- Begin Page Content -->
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Listagem de Produtos</h1>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-sm table-bordered table-hover text-center datatable-custom" id="table-result">
+            <thead class="thead-light">
+                <tr class="bg-light">
+                    <th class="align-middle">
+
+                    </th>
+                    <th class="align-middle">
+                        Descrição
+                    </th>
+                    <th class="align-middle">
+                        Status
+                    </th>
+                    <th class="align-middle">
+                        Data de Abertura
+                    </th>
+                    <th class="align-middle">
+                        Ações
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @*@foreach (var item in Model)
+                {*@
+                    @*<tr data-codigo="@item.CD_OBRA" data-ds="@item.DS_OBRA">*@
+                        <td class="text-center active">
+                            @*@item.CD_PRODUTO*@
+                        </td>
+                        <td class="text-left">
+                            @*@item.DS_PRODUTO*@
+                        </td>
+                        <td class="text-center">
+                            @*@if (item.X_FINALIZADO)
+                            {*@
+                                <span class="badge badge-info" value="1">Finalizado</span>
+                            @*}
+                            else
+                            {*@
+                                @*<span class="badge badge-warning" value="0">Em Andamento</span>
+                            }*@
+                        </td>
+                        <td class="text-left">
+                            @*@item.DT_CADASTRO.ToShortDateString()*@
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Ações <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-right">
+                                <li class="text-center">
+                                    @*<a class="alterarStatus" data-descricao="@(item.DS_OBRA)" data-id="@(item.CD_OBRA)" data-status="@(item.X_FINALIZADO)" data-target="modalAlterar" style="cursor: pointer;"> Alterar Status</a>*@
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                @*}*@
+            </tbody>
+            <tfoot></tfoot>
+        </table>
+    </div>
+
+</div>
+
