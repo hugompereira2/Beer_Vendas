@@ -537,7 +537,6 @@ C:\Users\Hugo\Documents\GitHub\Beer_Vendas\bin\Debug\netcoreapp3.1\refs\Microsof
 C:\Users\Hugo\Documents\GitHub\Beer_Vendas\bin\Debug\netcoreapp3.1\refs\Microsoft.VisualBasic.Core.dll
 C:\Users\Hugo\Documents\GitHub\Beer_Vendas\bin\Debug\netcoreapp3.1\refs\Microsoft.VisualBasic.dll
 C:\Users\Hugo\Documents\GitHub\Beer_Vendas\bin\Debug\netcoreapp3.1\refs\Microsoft.Win32.Primitives.dll
-C:\Users\Hugo\Documents\GitHub\Beer_Vendas\bin\Debug\netcoreapp3.1\refs\Microsoft.Win32.Registry.dll
 C:\Users\Hugo\Documents\GitHub\Beer_Vendas\bin\Debug\netcoreapp3.1\refs\mscorlib.dll
 C:\Users\Hugo\Documents\GitHub\Beer_Vendas\bin\Debug\netcoreapp3.1\refs\netstandard.dll
 C:\Users\Hugo\Documents\GitHub\Beer_Vendas\bin\Debug\netcoreapp3.1\refs\System.AppContext.dll
@@ -562,7 +561,6 @@ C:\Users\Hugo\Documents\GitHub\Beer_Vendas\bin\Debug\netcoreapp3.1\refs\System.D
 C:\Users\Hugo\Documents\GitHub\Beer_Vendas\bin\Debug\netcoreapp3.1\refs\System.Diagnostics.Contracts.dll
 C:\Users\Hugo\Documents\GitHub\Beer_Vendas\bin\Debug\netcoreapp3.1\refs\System.Diagnostics.Debug.dll
 C:\Users\Hugo\Documents\GitHub\Beer_Vendas\bin\Debug\netcoreapp3.1\refs\System.Diagnostics.DiagnosticSource.dll
-C:\Users\Hugo\Documents\GitHub\Beer_Vendas\bin\Debug\netcoreapp3.1\refs\System.Diagnostics.EventLog.dll
 C:\Users\Hugo\Documents\GitHub\Beer_Vendas\bin\Debug\netcoreapp3.1\refs\System.Diagnostics.FileVersionInfo.dll
 C:\Users\Hugo\Documents\GitHub\Beer_Vendas\bin\Debug\netcoreapp3.1\refs\System.Diagnostics.Process.dll
 C:\Users\Hugo\Documents\GitHub\Beer_Vendas\bin\Debug\netcoreapp3.1\refs\System.Diagnostics.StackTrace.dll
@@ -588,7 +586,6 @@ C:\Users\Hugo\Documents\GitHub\Beer_Vendas\bin\Debug\netcoreapp3.1\refs\System.I
 C:\Users\Hugo\Documents\GitHub\Beer_Vendas\bin\Debug\netcoreapp3.1\refs\System.IO.FileSystem.Watcher.dll
 C:\Users\Hugo\Documents\GitHub\Beer_Vendas\bin\Debug\netcoreapp3.1\refs\System.IO.IsolatedStorage.dll
 C:\Users\Hugo\Documents\GitHub\Beer_Vendas\bin\Debug\netcoreapp3.1\refs\System.IO.MemoryMappedFiles.dll
-C:\Users\Hugo\Documents\GitHub\Beer_Vendas\bin\Debug\netcoreapp3.1\refs\System.IO.Pipelines.dll
 C:\Users\Hugo\Documents\GitHub\Beer_Vendas\bin\Debug\netcoreapp3.1\refs\System.IO.Pipes.dll
 C:\Users\Hugo\Documents\GitHub\Beer_Vendas\bin\Debug\netcoreapp3.1\refs\System.IO.UnmanagedMemoryStream.dll
 C:\Users\Hugo\Documents\GitHub\Beer_Vendas\bin\Debug\netcoreapp3.1\refs\System.Linq.dll
@@ -644,19 +641,14 @@ C:\Users\Hugo\Documents\GitHub\Beer_Vendas\bin\Debug\netcoreapp3.1\refs\System.R
 C:\Users\Hugo\Documents\GitHub\Beer_Vendas\bin\Debug\netcoreapp3.1\refs\System.Runtime.Serialization.Json.dll
 C:\Users\Hugo\Documents\GitHub\Beer_Vendas\bin\Debug\netcoreapp3.1\refs\System.Runtime.Serialization.Primitives.dll
 C:\Users\Hugo\Documents\GitHub\Beer_Vendas\bin\Debug\netcoreapp3.1\refs\System.Runtime.Serialization.Xml.dll
-C:\Users\Hugo\Documents\GitHub\Beer_Vendas\bin\Debug\netcoreapp3.1\refs\System.Security.AccessControl.dll
 C:\Users\Hugo\Documents\GitHub\Beer_Vendas\bin\Debug\netcoreapp3.1\refs\System.Security.Claims.dll
 C:\Users\Hugo\Documents\GitHub\Beer_Vendas\bin\Debug\netcoreapp3.1\refs\System.Security.Cryptography.Algorithms.dll
-C:\Users\Hugo\Documents\GitHub\Beer_Vendas\bin\Debug\netcoreapp3.1\refs\System.Security.Cryptography.Cng.dll
 C:\Users\Hugo\Documents\GitHub\Beer_Vendas\bin\Debug\netcoreapp3.1\refs\System.Security.Cryptography.Csp.dll
 C:\Users\Hugo\Documents\GitHub\Beer_Vendas\bin\Debug\netcoreapp3.1\refs\System.Security.Cryptography.Encoding.dll
 C:\Users\Hugo\Documents\GitHub\Beer_Vendas\bin\Debug\netcoreapp3.1\refs\System.Security.Cryptography.Primitives.dll
 C:\Users\Hugo\Documents\GitHub\Beer_Vendas\bin\Debug\netcoreapp3.1\refs\System.Security.Cryptography.X509Certificates.dll
-C:\Users\Hugo\Documents\GitHub\Beer_Vendas\bin\Debug\netcoreapp3.1\refs\System.Security.Cryptography.Xml.dll
 C:\Users\Hugo\Documents\GitHub\Beer_Vendas\bin\Debug\netcoreapp3.1\refs\System.Security.dll
-C:\Users\Hugo\Documents\GitHub\Beer_Vendas\bin\Debug\netcoreapp3.1\refs\System.Security.Permissions.dll
 C:\Users\Hugo\Documents\GitHub\Beer_Vendas\bin\Debug\netcoreapp3.1\refs\System.Security.Principal.dll
-C:\Users\Hugo\Documents\GitHub\Beer_Vendas\bin\Debug\netcoreapp3.1\refs\System.Security.Principal.Windows.dll
 C:\Users\Hugo\Documents\GitHub\Beer_Vendas\bin\Debug\netcoreapp3.1\refs\System.Security.SecureString.dll
 C:\Users\Hugo\Documents\GitHub\Beer_Vendas\bin\Debug\netcoreapp3.1\refs\System.ServiceModel.Web.dll
 C:\Users\Hugo\Documents\GitHub\Beer_Vendas\bin\Debug\netcoreapp3.1\refs\System.ServiceProcess.dll
@@ -681,7 +673,6 @@ C:\Users\Hugo\Documents\GitHub\Beer_Vendas\bin\Debug\netcoreapp3.1\refs\System.V
 C:\Users\Hugo\Documents\GitHub\Beer_Vendas\bin\Debug\netcoreapp3.1\refs\System.Web.dll
 C:\Users\Hugo\Documents\GitHub\Beer_Vendas\bin\Debug\netcoreapp3.1\refs\System.Web.HttpUtility.dll
 C:\Users\Hugo\Documents\GitHub\Beer_Vendas\bin\Debug\netcoreapp3.1\refs\System.Windows.dll
-C:\Users\Hugo\Documents\GitHub\Beer_Vendas\bin\Debug\netcoreapp3.1\refs\System.Windows.Extensions.dll
 C:\Users\Hugo\Documents\GitHub\Beer_Vendas\bin\Debug\netcoreapp3.1\refs\System.Xml.dll
 C:\Users\Hugo\Documents\GitHub\Beer_Vendas\bin\Debug\netcoreapp3.1\refs\System.Xml.Linq.dll
 C:\Users\Hugo\Documents\GitHub\Beer_Vendas\bin\Debug\netcoreapp3.1\refs\System.Xml.ReaderWriter.dll
@@ -720,7 +711,6 @@ C:\Users\Hugo\Documents\GitHub\Beer_Vendas\bin\Debug\netcoreapp3.1\System.Compos
 C:\Users\Hugo\Documents\GitHub\Beer_Vendas\bin\Debug\netcoreapp3.1\System.Composition.Hosting.dll
 C:\Users\Hugo\Documents\GitHub\Beer_Vendas\bin\Debug\netcoreapp3.1\System.Composition.Runtime.dll
 C:\Users\Hugo\Documents\GitHub\Beer_Vendas\bin\Debug\netcoreapp3.1\System.Composition.TypedParts.dll
-C:\Users\Hugo\Documents\GitHub\Beer_Vendas\bin\Debug\netcoreapp3.1\System.Security.Cryptography.Pkcs.dll
 C:\Users\Hugo\Documents\GitHub\Beer_Vendas\bin\Debug\netcoreapp3.1\System.Text.Json.dll
 C:\Users\Hugo\Documents\GitHub\Beer_Vendas\bin\Debug\netcoreapp3.1\cs\Microsoft.CodeAnalysis.resources.dll
 C:\Users\Hugo\Documents\GitHub\Beer_Vendas\bin\Debug\netcoreapp3.1\de\Microsoft.CodeAnalysis.resources.dll
@@ -774,7 +764,6 @@ C:\Users\Hugo\Documents\GitHub\Beer_Vendas\bin\Debug\netcoreapp3.1\ru\Microsoft.
 C:\Users\Hugo\Documents\GitHub\Beer_Vendas\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\Hugo\Documents\GitHub\Beer_Vendas\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\Hugo\Documents\GitHub\Beer_Vendas\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\Hugo\Documents\GitHub\Beer_Vendas\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Security.Cryptography.Pkcs.dll
 C:\Users\Hugo\Documents\GitHub\Beer_Vendas\obj\Debug\netcoreapp3.1\Beer_Vendas.csprojAssemblyReference.cache
 C:\Users\Hugo\Documents\GitHub\Beer_Vendas\obj\Debug\netcoreapp3.1\staticwebassets\Beer_Vendas.StaticWebAssets.Manifest.cache
 C:\Users\Hugo\Documents\GitHub\Beer_Vendas\obj\Debug\netcoreapp3.1\staticwebassets\Beer_Vendas.StaticWebAssets.xml
@@ -804,3 +793,5 @@ C:\Users\Hugo\Documents\GitHub\Beer_Vendas\obj\Debug\netcoreapp3.1\Beer_Vendas.V
 C:\Users\Hugo\Documents\GitHub\Beer_Vendas\obj\Debug\netcoreapp3.1\Beer_Vendas.csproj.CopyComplete
 C:\Users\Hugo\Documents\GitHub\Beer_Vendas\obj\Debug\netcoreapp3.1\Beer_Vendas.dll
 C:\Users\Hugo\Documents\GitHub\Beer_Vendas\obj\Debug\netcoreapp3.1\Beer_Vendas.pdb
+C:\Users\Hugo\Documents\GitHub\Beer_Vendas\obj\Debug\netcoreapp3.1\Beer_Vendas.csproj.CoreCompileInputs.cache
+C:\Users\Hugo\Documents\GitHub\Beer_Vendas\obj\Debug\netcoreapp3.1\Beer_Vendas.genruntimeconfig.cache

@@ -19,7 +19,7 @@ namespace Beer_Vendas.Models
             cliente.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
 
         }
-
+        //Pegar todos os Usuários (API ONLINE)
         public async Task<IEnumerable<Usuario>> GetUsuariosAsync()
         {
             HttpResponseMessage response = await cliente.GetAsync("usuario");
@@ -33,6 +33,20 @@ namespace Beer_Vendas.Models
 
             return new List<Usuario>();
 
+        }
+        //Pegar todos os Produtos (API ONLINE)
+        public async Task<IEnumerable<Produto>> GetProdutosAsync()
+        {
+            HttpResponseMessage response = await cliente.GetAsync("produto");
+
+            if (response.IsSuccessStatusCode)
+            {
+                var dados = await response.Content.ReadAsStringAsync();
+                var Produtos = JsonConvert.DeserializeObject<IEnumerable<Produto>>(dados);
+                return Produtos;
+            }
+
+            return new List<Produto>();
         }
     }
 }

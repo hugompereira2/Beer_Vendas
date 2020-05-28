@@ -7,11 +7,11 @@ namespace Beer_Vendas.Models
 {
     public class Produto
     {
-        public string Id { get; set; }
-        public string Nome { get; set; }
-        public decimal Valor { get; set; }
-        public string Descricao { get; set; }
-        public int Quantidade { get; set; }
-        public string Imagem { get; set; }
+        public int pro_id { get; set; }
+        public string pro_nome { get; set; }
+        public string pro_descricao { get; set; }
+        public int pro_valor { get; set; }
+        public int pro_estoque { get; set; }
+        //public string pro_imagem { get; set; }
     }
 }

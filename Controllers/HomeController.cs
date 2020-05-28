@@ -25,8 +25,11 @@ namespace Beer_Vendas.Controllers
 
             Usuario Usuario = new Usuario();
 
-            var Usuarios = repositorio.GetUsuariosAsync();
-            ViewBag.teste = Usuarios;
+            //var Usuarios = repositorio.GetUsuariosAsync();
+            //ViewBag.teste = Usuarios;
+
+            var Produtos = repositorio.GetProdutosAsync();
+            ViewBag.teste = Produtos;
 
             return View();
         }
