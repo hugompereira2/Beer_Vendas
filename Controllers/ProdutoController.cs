@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Beer_Vendas.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using produto = Beer_Vendas.Models.Produto;
 
 namespace Beer_Vendas.Controllers
 {
@@ -12,12 +14,39 @@ namespace Beer_Vendas.Controllers
         // GET: Produto
         public ActionResult Listar()
         {
+            UsuarioRepositorio repositorio = new UsuarioRepositorio();
+            produto produto = new produto();
+
+            var Produtos = repositorio.GetProdutosAsync();
+
+            //foreach (var item in Produtos.Result)
+            //{
+
+            //}
+            ViewBag.Produtos = Produtos;
+
             return View();
         }
 
         // GET: Produto/Details/5
         public ActionResult Cadastrar()
         {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Cadastrar(produto produto)
+        {
+            UsuarioRepositorio repositorio = new UsuarioRepositorio();
+
+            try
+            {
+                repositorio.PostProdutos(produto);
+            }
+            catch
+            {
+                throw;
+            }
+
             return View();
         }
 

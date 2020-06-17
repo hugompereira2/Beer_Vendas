@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Beer_Vendas.Models;
 
 namespace Beer_Vendas.Controllers
 {
@@ -16,8 +17,13 @@ namespace Beer_Vendas.Controllers
         }
 
         // GET: Usuario/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Listar()
         {
+            UsuarioRepositorio repositorio = new UsuarioRepositorio();
+
+            var usuarios = repositorio.GetUsuariosAsync();
+            ViewBag.usuarios = usuarios;
+
             return View();
         }
 

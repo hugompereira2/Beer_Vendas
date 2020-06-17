@@ -795,3 +795,5 @@ C:\Users\Hugo\Documents\GitHub\Beer_Vendas\obj\Debug\netcoreapp3.1\Beer_Vendas.d
 C:\Users\Hugo\Documents\GitHub\Beer_Vendas\obj\Debug\netcoreapp3.1\Beer_Vendas.pdb
 C:\Users\Hugo\Documents\GitHub\Beer_Vendas\obj\Debug\netcoreapp3.1\Beer_Vendas.csproj.CoreCompileInputs.cache
 C:\Users\Hugo\Documents\GitHub\Beer_Vendas\obj\Debug\netcoreapp3.1\Beer_Vendas.genruntimeconfig.cache
+C:\Users\Hugo\Documents\GitHub\Beer_Vendas\obj\Debug\netcoreapp3.1\Razor\Views\Usuario\Listar.cshtml.g.cs
+C:\Users\Hugo\Documents\GitHub\Beer_Vendas\obj\Debug\netcoreapp3.1\Razor\Views\Pedido\Solicitacao.cshtml.g.cs

@@ -1,16 +1,16 @@
-﻿@model Beer_Vendas.Models.Produto;
+﻿@model Beer_Vendas.Models.Usuario
 @{
     ViewData["Title"] = "Listar";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 
-    var produtos = ViewBag.Produtos.Result;
+    var usuarios = ViewBag.usuarios.Result;
 }
 
 <!-- Begin Page Content -->
 <div class="container-fluid">
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Listagem de Produtos</h1>
+        <h1 class="h3 mb-0 text-gray-800">Listagem de Usuários</h1>
     </div>
 
     <div class="table-responsive">
@@ -24,13 +24,13 @@
                         Nome
                     </th>
                     <th class="align-middle">
-                        Descrição
+                        Email
                     </th>
                     <th class="align-middle">
-                        Valor R$
+                        Usuario
                     </th>
                     <th class="align-middle">
-                        Quantidade
+                        Senha
                     </th>
                     <th class="align-middle">
                         Ações
@@ -38,23 +38,23 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var item in produtos)
+                @foreach (var item in usuarios)
                 {
-                    <tr data-codigo="@item.pro_id" data-ds="@item.pro_nome">
+                    <tr data-codigo="@item.usu_id" data-ds="@item.usu_nome">
                         <td class="text-center active">
-                            @item.pro_id
+                            @item.usu_id
                         </td>
                         <td class="text-left">
-                            @item.pro_nome
+                            @item.usu_nome
                         </td>
                         <td class="text-left">
-                            @item.pro_descricao
+                            @item.usu_email
                         </td>
                         <td class="text-center">
-                            @item.pro_valor
+                            @item.usu_login
                         </td>
                         <td class="text-center">
-                            @item.pro_estoque
+                            @item.usu_senha
                         </td>
                         @*<td class="text-center">
                                 @if (item.X_FINALIZADO)
@@ -89,6 +89,5 @@
 
 </div>
 <script>
-
 </script>
 

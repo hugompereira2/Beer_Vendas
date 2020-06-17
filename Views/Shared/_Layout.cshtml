@@ -6,22 +6,24 @@
     <title>@ViewData["Title"] - Beer_Vendas</title>
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="~/css/sb-admin-2.css" />
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
     <link href="~/js/fontawesome-free/css/all.min.css" rel="stylesheet" />
 </head>
 <body>
     <header>
         <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 border-bottom bg-gradient-unique shadow-sm">
             <div class="logo_beer rotate-n-15 text-white">
-                <i class="fas fa-beer"></i>
+                <i class="fas fa-beer" style="cursor: pointer;" onclick="location.href='@Url.Action("Index", "Home")'"></i>
             </div>
-            <h5 class="my-0 mr-md-auto text-white text_unique">Erlang Beer</h5>
+            <h5 class="my-0 mr-md-auto text-white text_unique" style="cursor: pointer;" onclick="location.href='@Url.Action("Index", "Home")'">Erlang Beer</h5>
             <nav class="my-2 my-md-0 mr-md-3">
-                <a class="p-2 text-white" href="#">Catalogo</a>
-                <a class="p-2 text-white" href="#">Sobre</a>
-                <a class="p-2 text-white" href="#">Contato</a>
-                <a class="btn btn-outline-primary" href="#">Cadastre-se</a>
+                <a class="btn btn-outline-primary" id="cadastro" data-toggle="modal" data-target="#modal_cadastro" href="#">Cadastre-se</a>
+                <a class="btn btn-outline-primary" id="login" data-toggle="modal" data-target="#modal_login" href="#">Entrar</a>
             </nav>
-            <a class="btn btn-outline-primary" href="adm.html">Admin</a>
+            <nav class="my-2 my-md-0 mr-md-3">
+                <a> <i class="fas fa-cart-arrow-down text-white" style="font-size:1.5em;"></i></a>
+            </nav>
+            <a class="btn btn-outline-primary" onclick="location.href='@Url.Action("Home", "Usuario")'" href="#">Admin</a>
         </div>
     </header>
     <div class="container">
@@ -31,10 +33,89 @@
     </div>
 
     <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2020 - Beer_Vendas - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        <div class="container text-center">
+            &copy; 2020 - Erlang Beer - Todos os direitos reservados.
         </div>
     </footer>
+
+    <div class="modal fade" id="modal_cadastro" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Cadastro</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="inputNomeCadastro">Nome</label>
+                                <input type="text" class="form-control" id="inputNomeCadastro">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="inputSobrenomeCadastro">Sobrenome</label>
+                                <input type="text" class="form-control" id="inputSobrenomeCadastro">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmailCadastro">E-mail</label>
+                            <input type="email" class="form-control" id="inputEmailCadastro" required="required">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="inputPasswordCadastro">Senha</label>
+                                <input type="password" class="form-control" id="inputPasswordCadastro" required="required">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="inputConfirmCadastro">Confirmar Senha</label>
+                                <input type="password" class="form-control" id="inputConfirmCadastro" required="required">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Fechar</button>
+                            <button type="submit" class="btn btn-primary" id="confirmModalCadastro">Cadastrar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modal_login" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Login</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="inputEmail">E-mail</label>
+                            <input type="email" class="form-control" id="inputEmail" required="required">
+                        </div>
+                        <div class="form-group">
+                            <div class="form-group">
+                                <label for="inputPassword">Senha</label>
+                                <input type="password" class="form-control" id="inputPassword" required="required">
+                            </div>
+                            <a href="#">Esqueci minha senha</a>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Fechar</button>
+                            <button type="submit" class="btn btn-primary" id="confirm_login">Entrar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <script src="~/js/jquery/jquery.js"></script>
     <script src="~/js/bootstrap/js/bootstrap.min.js"></script>
     <script src="~/js/sweetalert2.all.min.js"></script>
@@ -42,3 +123,14 @@
     @RenderSection("Scripts", required: false)
 </body>
 </html>
+<script>
+    $("#confirmModalCadastro").click(function () {
+        var senha = $('#inputPassword').val();
+        var senhaConfirm = $('#inputConfirm').val();
+        if (senha != senhaConfirm) {
+            alert("Senhas diferentes!");
+            return
+        }
+    });
+</script>
+

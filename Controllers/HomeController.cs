@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Beer_Vendas.Models;
 using Converte_Object_Json;
+using System.Buffers.Text;
+using Base64 = Beer_Vendas.Models.Base64;
 
 namespace Beer_Vendas.Controllers
 {
@@ -24,12 +26,18 @@ namespace Beer_Vendas.Controllers
             UsuarioRepositorio repositorio = new UsuarioRepositorio();
 
             Usuario Usuario = new Usuario();
-
+            Base64 img = new Base64();
+            Produto produto = new Produto();
             //var Usuarios = repositorio.GetUsuariosAsync();
             //ViewBag.teste = Usuarios;
 
             var Produtos = repositorio.GetProdutosAsync();
-            ViewBag.teste = Produtos;
+
+            //foreach (var item in Produtos.Result)
+            //{
+
+            //}
+            ViewBag.Produtos = Produtos;
 
             return View();
         }

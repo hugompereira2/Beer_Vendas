@@ -2,163 +2,114 @@
 @{
     ViewData["Title"] = "Home Page";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    var usuarios = ViewBag.teste.Result;
+    var produtos = ViewBag.Produtos.Result;
 }
-
-    <div class="container">
-        @{
-            foreach (var item in usuarios)
-            {
-                <h1>@item.pro_id</h1>
-            }
+<style>
+    .container img {
+        max-width: 150px;
+        max-height: 150px;
+        width: auto;
+        height: auto;
+        top: 50%;
+        left: 50%;
+    }
+</style>
+<div class="container">
+    <div class="card-deck mb-3 text-center row">
+        @foreach (var item in produtos)
+        {
+            <div class="col-sm-3">
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-header">
+                        <h4 class="my-0 font-weight-normal">@item.pro_nome</h4>
+                        <div style="margin-top:1em;">
+                            <img src="data:image/jpeg;base64,@item.pro_imagem" />
+                        </div>
+                    </div>
+                    <div class="card-body" id="headingOne">
+                        <h1 class="card-title pricing-card-title"><small class="text-muted">R$ @item.pro_valor</small></h1>
+                        <div>
+                            <a type="button" href="@Url.Action("Index", new { id = item.pro_id })" class="btn btn-lg btn-block btn-outline-primary">Comprar</a>
+                            <button type="button" data-toggle="collapse" data-target="#collapse_@item.pro_id" aria-expanded="true" aria-controls="collapse_@item.pro_id" class="btn btn-sm btn-block btn-outline-primary">Detalhes</button>
+                        </div>
+                        <div id="collapse_@item.pro_id" class="collapse" aria-labelledby="headingOne" data-parent="#headingOne">
+                            <div class="card-body">
+                                @item.pro_descricao
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-header">
+                        <h4 class="my-0 font-weight-normal">@item.pro_nome</h4>
+                        <div style="margin-top:1em;">
+                            <img src="data:image/jpeg;base64,@item.pro_imagem" />
+                        </div>
+                    </div>
+                    <div class="card-body" id="headingOne">
+                        <h1 class="card-title pricing-card-title"><small class="text-muted">R$ @item.pro_valor</small></h1>
+                        <div>
+                            <a type="button" href="@Url.Action("Index", new { id = item.pro_id })" class="btn btn-lg btn-block btn-outline-primary">Comprar</a>
+                            <button type="button" data-toggle="collapse" data-target="#collapse_@item.pro_id" aria-expanded="true" aria-controls="collapse_@item.pro_id" class="btn btn-sm btn-block btn-outline-primary">Detalhes</button>
+                        </div>
+                        <div id="collapse_@item.pro_id" class="collapse" aria-labelledby="headingOne" data-parent="#headingOne">
+                            <div class="card-body">
+                                @item.pro_descricao
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-header">
+                        <h4 class="my-0 font-weight-normal">@item.pro_nome</h4>
+                        <div style="margin-top:1em;">
+                            <img src="data:image/jpeg;base64,@item.pro_imagem" />
+                        </div>
+                    </div>
+                    <div class="card-body" id="headingOne">
+                        <h1 class="card-title pricing-card-title"><small class="text-muted">R$ @item.pro_valor</small></h1>
+                        <div>
+                            <a type="button" href="@Url.Action("Index", new { id = item.pro_id })" class="btn btn-lg btn-block btn-outline-primary">Comprar</a>
+                            <button type="button" data-toggle="collapse" data-target="#collapse_@item.pro_id" aria-expanded="true" aria-controls="collapse_@item.pro_id" class="btn btn-sm btn-block btn-outline-primary">Detalhes</button>
+                        </div>
+                        <div id="collapse_@item.pro_id" class="collapse" aria-labelledby="headingOne" data-parent="#headingOne">
+                            <div class="card-body">
+                                @item.pro_descricao
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-header">
+                        <h4 class="my-0 font-weight-normal">@item.pro_nome</h4>
+                        <div style="margin-top:1em;">
+                            <img src="data:image/jpeg;base64,@item.pro_imagem" />
+                        </div>
+                    </div>
+                    <div class="card-body" id="headingOne">
+                        <h1 class="card-title pricing-card-title"><small class="text-muted">R$ @item.pro_valor</small></h1>
+                        <div>
+                            <a type="button" href="@Url.Action("Index", new { id = item.pro_id })" class="btn btn-lg btn-block btn-outline-primary">Comprar</a>
+                            <button type="button" data-toggle="collapse" data-target="#collapse_@item.pro_id" aria-expanded="true" aria-controls="collapse_@item.pro_id" class="btn btn-sm btn-block btn-outline-primary">Detalhes</button>
+                        </div>
+                        <div id="collapse_@item.pro_id" class="collapse" aria-labelledby="headingOne" data-parent="#headingOne">
+                            <div class="card-body">
+                                @item.pro_descricao
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         }
-        <div class="card-deck mb-3 text-center">
-            <div class="card mb-4 shadow-sm">
-                <div class="card-header">
-                    <h4 class="my-0 font-weight-normal">Free</h4>
-                </div>
-                <div class="card-body">
-                    <h1 class="card-title pricing-card-title">$0 <small class="text-muted">/ mo</small></h1>
-                    <ul class="list-unstyled mt-3 mb-4">
-                        <li>10 users included</li>
-                        <li>2 GB of storage</li>
-                        <li>Email support</li>
-                        <li>Help center access</li>
-                    </ul>
-                    <button type="button" class="btn btn-lg btn-block btn-outline-primary">Sign up for free</button>
-                </div>
-            </div>
-            <div class="card mb-4 shadow-sm">
-                <div class="card-header">
-                    <h4 class="my-0 font-weight-normal">Pro</h4>
-                </div>
-                <div class="card-body">
-                    <h1 class="card-title pricing-card-title">$15 <small class="text-muted">/ mo</small></h1>
-                    <ul class="list-unstyled mt-3 mb-4">
-                        <li>20 users included</li>
-                        <li>10 GB of storage</li>
-                        <li>Priority email support</li>
-                        <li>Help center access</li>
-                    </ul>
-                    <button type="button" class="btn btn-lg btn-block btn-primary">Get started</button>
-                </div>
-            </div>
-            <div class="card mb-4 shadow-sm">
-                <div class="card-header">
-                    <h4 class="my-0 font-weight-normal">Enterprise</h4>
-                </div>
-                <div class="card-body">
-                    <h1 class="card-title pricing-card-title">$29 <small class="text-muted">/ mo</small></h1>
-                    <ul class="list-unstyled mt-3 mb-4">
-                        <li>30 users included</li>
-                        <li>15 GB of storage</li>
-                        <li>Phone and email support</li>
-                        <li>Help center access</li>
-                    </ul>
-                    <button type="button" class="btn btn-lg btn-block btn-primary">Contact us</button>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="card-deck mb-3 text-center">
-                <div class="card mb-4 shadow-sm">
-                    <div class="card-header">
-                        <h4 class="my-0 font-weight-normal">Free</h4>
-                    </div>
-                    <div class="card-body">
-                        <h1 class="card-title pricing-card-title">$0 <small class="text-muted">/ mo</small></h1>
-                        <ul class="list-unstyled mt-3 mb-4">
-                            <li>10 users included</li>
-                            <li>2 GB of storage</li>
-                            <li>Email support</li>
-                            <li>Help center access</li>
-                        </ul>
-                        <button type="button" class="btn btn-lg btn-block btn-outline-primary">Sign up for free</button>
-                    </div>
-                </div>
-                <div class="card mb-4 shadow-sm">
-                    <div class="card-header">
-                        <h4 class="my-0 font-weight-normal">Pro</h4>
-                    </div>
-                    <div class="card-body">
-                        <h1 class="card-title pricing-card-title">$15 <small class="text-muted">/ mo</small></h1>
-                        <ul class="list-unstyled mt-3 mb-4">
-                            <li>20 users included</li>
-                            <li>10 GB of storage</li>
-                            <li>Priority email support</li>
-                            <li>Help center access</li>
-                        </ul>
-                        <button type="button" class="btn btn-lg btn-block btn-primary">Get started</button>
-                    </div>
-                </div>
-                <div class="card mb-4 shadow-sm">
-                    <div class="card-header">
-                        <h4 class="my-0 font-weight-normal">Enterprise</h4>
-                    </div>
-                    <div class="card-body">
-                        <h1 class="card-title pricing-card-title">$29 <small class="text-muted">/ mo</small></h1>
-                        <ul class="list-unstyled mt-3 mb-4">
-                            <li>30 users included</li>
-                            <li>15 GB of storage</li>
-                            <li>Phone and email support</li>
-                            <li>Help center access</li>
-                        </ul>
-                        <button type="button" class="btn btn-lg btn-block btn-primary">Contact us</button>
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="card-deck mb-3 text-center">
-                    <div class="card mb-4 shadow-sm">
-                        <div class="card-header">
-                            <h4 class="my-0 font-weight-normal">Free</h4>
-                        </div>
-                        <div class="card-body">
-                            <h1 class="card-title pricing-card-title">$0 <small class="text-muted">/ mo</small></h1>
-                            <ul class="list-unstyled mt-3 mb-4">
-                                <li>10 users included</li>
-                                <li>2 GB of storage</li>
-                                <li>Email support</li>
-                                <li>Help center access</li>
-                            </ul>
-                            <button type="button" class="btn btn-lg btn-block btn-outline-primary">Sign up for free</button>
-                        </div>
-                    </div>
-                    <div class="card mb-4 shadow-sm">
-                        <div class="card-header">
-                            <h4 class="my-0 font-weight-normal">Pro</h4>
-                        </div>
-                        <div class="card-body">
-                            <h1 class="card-title pricing-card-title">$15 <small class="text-muted">/ mo</small></h1>
-                            <ul class="list-unstyled mt-3 mb-4">
-                                <li>20 users included</li>
-                                <li>10 GB of storage</li>
-                                <li>Priority email support</li>
-                                <li>Help center access</li>
-                            </ul>
-                            <button type="button" class="btn btn-lg btn-block btn-primary">Get started</button>
-                        </div>
-                    </div>
-                    <div class="card mb-4 shadow-sm">
-                        <div class="card-header">
-                            <h4 class="my-0 font-weight-normal">Enterprise</h4>
-                        </div>
-                        <div class="card-body">
-                            <h1 class="card-title pricing-card-title">$29 <small class="text-muted">/ mo</small></h1>
-                            <ul class="list-unstyled mt-3 mb-4">
-                                <li>30 users included</li>
-                                <li>15 GB of storage</li>
-                                <li>Phone and email support</li>
-                                <li>Help center access</li>
-                            </ul>
-                            <button type="button" class="btn btn-lg btn-block btn-primary">Contact us</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
+    </div>
+</div>
 <script>
 
 

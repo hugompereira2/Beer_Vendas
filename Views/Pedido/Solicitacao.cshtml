@@ -1,16 +1,16 @@
-﻿@model Beer_Vendas.Models.Produto;
+﻿@model Beer_Vendas.Models.Pedido;
 @{
-    ViewData["Title"] = "Listar";
+    ViewData["Title"] = "Solicitacao";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 
-    var produtos = ViewBag.Produtos.Result;
+    var pedidos = ViewBag.pedidos.Result;
 }
 
 <!-- Begin Page Content -->
 <div class="container-fluid">
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Listagem de Produtos</h1>
+        <h1 class="h3 mb-0 text-gray-800">Listagem de Solicitações</h1>
     </div>
 
     <div class="table-responsive">
@@ -21,16 +21,19 @@
                         #
                     </th>
                     <th class="align-middle">
-                        Nome
+                        Cliente
                     </th>
                     <th class="align-middle">
-                        Descrição
+                        Data
                     </th>
                     <th class="align-middle">
-                        Valor R$
+                        Valor
                     </th>
                     <th class="align-middle">
                         Quantidade
+                    </th>
+                    <th class="align-middle">
+                        Situação
                     </th>
                     <th class="align-middle">
                         Ações
@@ -38,23 +41,26 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var item in produtos)
+                @foreach (var item in pedidos)
                 {
-                    <tr data-codigo="@item.pro_id" data-ds="@item.pro_nome">
+                    <tr data-codigo="@item.ped_id" data-ds="@item.ped_cli_id">
                         <td class="text-center active">
-                            @item.pro_id
+                            @item.ped_id
                         </td>
                         <td class="text-left">
-                            @item.pro_nome
+                            @item.ped_cli_id
                         </td>
                         <td class="text-left">
-                            @item.pro_descricao
+                            @item.ped_dtinclusao
                         </td>
                         <td class="text-center">
-                            @item.pro_valor
+                            @item.ped_vltotal
                         </td>
                         <td class="text-center">
-                            @item.pro_estoque
+                            @item.ped_qtditens
+                        </td>
+                        <td class="text-center">
+                            @item.ped_situacao
                         </td>
                         @*<td class="text-center">
                                 @if (item.X_FINALIZADO)
@@ -89,6 +95,5 @@
 
 </div>
 <script>
-
 </script>
 
