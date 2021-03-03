@@ -19,7 +19,7 @@ namespace Beer_Vendas.Controllers
         // GET: Usuario/Details/5
         public ActionResult Listar()
         {
-            UsuarioRepositorio repositorio = new UsuarioRepositorio();
+            Repositorio repositorio = new Repositorio();
 
             var usuarios = repositorio.GetUsuariosAsync();
             ViewBag.usuarios = usuarios;

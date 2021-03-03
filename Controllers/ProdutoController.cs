@@ -14,7 +14,7 @@ namespace Beer_Vendas.Controllers
         // GET: Produto
         public ActionResult Listar()
         {
-            UsuarioRepositorio repositorio = new UsuarioRepositorio();
+            Repositorio repositorio = new Repositorio();
             produto produto = new produto();
 
             var Produtos = repositorio.GetProdutosAsync();
@@ -36,18 +36,22 @@ namespace Beer_Vendas.Controllers
         [HttpPost]
         public ActionResult Cadastrar(produto produto)
         {
-            UsuarioRepositorio repositorio = new UsuarioRepositorio();
+            System.Threading.Thread.Sleep(3000);
+            Repositorio repositorio = new Repositorio();
+            Retorno ret = new Retorno();
 
             try
             {
-                repositorio.PostProdutos(produto);
+                //repositorio.PostProdutos(produto);
+                ret.Mensagem = "Cadastro com Sucesso!";
+                ret.Sucesso = true;
             }
             catch
             {
                 throw;
             }
 
-            return View();
+            return Json(ret);
         }
 
         // GET: Produto/Create

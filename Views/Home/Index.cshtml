@@ -2,7 +2,7 @@
 @{
     ViewData["Title"] = "Home Page";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    var produtos = ViewBag.Produtos.Result;
+    //  var produtos = ViewBag.Produtos.Result;
 }
 <style>
     .container img {
@@ -13,10 +13,15 @@
         top: 50%;
         left: 50%;
     }
+
+    .inputComprar {
+        width: 50%;
+        height: 50%;
+    }
 </style>
 <div class="container">
     <div class="card-deck mb-3 text-center row">
-        @foreach (var item in produtos)
+        @*@foreach (var item in produtos)
         {
             <div class="col-sm-3">
                 <div class="card mb-4 shadow-sm">
@@ -83,35 +88,62 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-sm-3">
-                <div class="card mb-4 shadow-sm">
-                    <div class="card-header">
-                        <h4 class="my-0 font-weight-normal">@item.pro_nome</h4>
-                        <div style="margin-top:1em;">
-                            <img src="data:image/jpeg;base64,@item.pro_imagem" />
-                        </div>
+            </div>*@
+        <div class="col-sm-3">
+            <div class="card mb-4 shadow-sm">
+                <div class="card-header">
+                    <h4 class="my-0 font-weight-normal">teste</h4>
+                    <div style="margin-top:1em;">
+                        @*<img src="data:image/jpeg;base64,@item.pro_imagem" />*@
                     </div>
-                    <div class="card-body" id="headingOne">
-                        <h1 class="card-title pricing-card-title"><small class="text-muted">R$ @item.pro_valor</small></h1>
-                        <div>
-                            <a type="button" href="@Url.Action("Index", new { id = item.pro_id })" class="btn btn-lg btn-block btn-outline-primary">Comprar</a>
-                            <button type="button" data-toggle="collapse" data-target="#collapse_@item.pro_id" aria-expanded="true" aria-controls="collapse_@item.pro_id" class="btn btn-sm btn-block btn-outline-primary">Detalhes</button>
-                        </div>
-                        <div id="collapse_@item.pro_id" class="collapse" aria-labelledby="headingOne" data-parent="#headingOne">
-                            <div class="card-body">
-                                @item.pro_descricao
-                            </div>
+                </div>
+                <div class="card-body" id="headingOne">
+                    <h1 class="card-title pricing-card-title"><small class="text-muted">R$ 2</small></h1>
+                    <small><strong>Quantidade Disponível: 20</strong></small>
+                    <div style="padding-top:0.5rem; padding-bottom:0.5rem">
+                        <small>Comprar: </small>
+                        <small class="inputComprar"><input type="number" style="width:50%" value="1" /></small>
+                    </div>
+                    <div>
+                        <button type="button" id="1" class="btn btn-lg btn-block btn-success">Comprar</button>
+                        <button type="button" data-toggle="collapse" data-target="#collapse_1" aria-expanded="true" aria-controls="collapse_1" class="btn btn-sm btn-block btn-primary">Detalhes</button>
+                    </div>
+                    <div id="collapse_1" class="collapse" aria-labelledby="headingOne" data-parent="#headingOne">
+                        <div class="card-body">
+                            descricao
                         </div>
                     </div>
                 </div>
             </div>
-        }
+        </div>
 
     </div>
 </div>
-<script>
 
+<script src="~/js/sweetalert2.all.min.js"></script>
+<script src="~/js/jquery/jquery.min.js"></script>
+
+<script>
+    $('.btn-success').click(function () {
+           Swal.fire({
+            title: 'Produto adicionado no carrinho! Deseja continuar comprando?',
+            showDenyButton: true,
+            showCancelButton: true,
+            confirmButtonText: `Sim`,
+            cancelButtonText: `Não`,
+        }).then((result) => {
+            /* Read more about isConfirmed, isDenied below */
+            if (result.isConfirmed) {
+                Swal.fire('Saved!', '', 'success')
+            } else if (result.isDenied) {
+                Swal.fire('Changes are not saved', '', 'info')
+            }
+        })
+    });
+
+
+     
+  
 
 
 </script>

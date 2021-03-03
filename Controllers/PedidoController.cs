@@ -14,13 +14,26 @@ namespace Beer_Vendas.Controllers
 {
     public class PedidoController : Controller
     {
-        public IActionResult Solicitacao()
+        public ActionResult Solicitacao()
         {
             pedido pedido = new pedido();
-            UsuarioRepositorio repositorio = new UsuarioRepositorio();
+            Repositorio repositorio = new Repositorio();
 
             var pedidos = repositorio.GetPedidosAsync();
             ViewBag.pedidos = pedidos;
+
+            return View();
+        }
+
+        public ActionResult Carrinho()
+        {
+            //var cookie = Request.Cookies["Usuario"];
+            //if (cookie == "0" || cookie == null)
+            //{
+            //    ViewBag.ExibirLogin = true;
+
+            //    return RedirectToAction("Index", "Home");
+            //}
 
             return View();
         }

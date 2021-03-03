@@ -1,0 +1,68 @@
+﻿
+@{
+    ViewData["Title"] = "Carrinho";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    td {
+        margin: 5px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    tbody tr {
+        height: 100px;
+        padding-left: 5px;
+        border-bottom: 2px solid #CCC;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    h5 h4 h3 h2 h1 {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+</style>
+
+<link href="~/css/style.css" rel="stylesheet" />
+
+<h2 class="title-pag">Carrinho de Compras</h2>
+
+<div class="tab-content">
+    <h4 class="title-table">Resumo do Pedido <i style="font-size:20px; color:#323232" class="fas fa-shopping-cart"></i></h4>
+    <table style="border: 2px solid gray; width:100%;">
+        <thead style="border-bottom: 2px solid #CCC;">
+            <tr>
+                <th style="width:50%; padding:20px 0px 20px 15px">Produto</th>
+                <th class="text-center" style="width:10%; padding:20px">Preço</th>
+                <th class="text-center" style="width:10%; padding:20px">Quantidade</th>
+                <th style="width:20%; padding:20px"></th>
+                <th class="text-center" style="padding:20px">Subtotal</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="padding-left:15px">Produto cerveja</td>
+                <td class="text-center">R$ 25,00</td>
+                <td class="text-center">3</td>
+                <td class="text-center"></td>
+                <td class="text-center">R$ 7500,00</td>
+            </tr>
+            <tr>
+                <td style="padding-left:15px">Produto cerveja</td>
+                <td class="text-center">R$ 25,00</td>
+                <td class="text-center">3</td>
+                <td class="text-center"></td>
+                <td class="text-center">R$ 7500,00</td>
+            </tr>
+            <tr>
+                <td style="padding-left:15px">Produto cerveja</td>
+                <td class="text-center">R$ 25,00</td>
+                <td class="text-center">3</td>
+                <td class="text-center"></td>
+                <td class="text-center">R$ 7500,00</td>
+            </tr>
+        </tbody>
+    </table>
+    <h5 class="result text-right">Total: R$ 7500,00</h5>
+
+</div>
+

@@ -1,16 +1,58 @@
-  .background-img{
+  .background-img {
       background-image: url(img/ice.jpg);
       background-repeat: no-repeat;
       background-attachment: fixed;
       background-position: center center;
       background-size: cover;
   }
-.navbar_fixed{
+.navbar_fixed {
     width: 100%; 
     background-color: white;
     border: 1000px;
 }
-.logo_beer{
-  font-size: 2rem; 
-  margin-right: 2em;
+
+.title-table {
+    margin-top: 40px;
+    padding-top: 8px;
+    border: 2px solid gray;
+    text-indent: 5px;
+    background-color: #C8C8C8;
+    margin-bottom: 0px;
+    height:3rem !important;
 }
+
+.result {
+    padding: 11px 8px 0px 0px;
+    border: 2px solid gray;
+    text-indent: 5px;
+    background-color: #C8C8C8;
+    margin-bottom: 0px;
+    height: 3rem !important;
+}
+
+#busy {
+    position: fixed;
+    left: 50%;
+    top: 35%;
+    z-index: 1000;
+    height: 200px;
+    width: 200px;
+    font-size:60px;
+    display: inline-block;
+    vertical-align: text-bottom;
+    border: 0.25em solid currentColor;
+    border-right-color: transparent;
+    border-radius: 50%;
+    -webkit-animation: spinner-border .75s linear infinite;
+    animation: spinner-border .75s linear infinite;
+}
+
+#busy-holder {
+    position:absolute;
+    background-color: grey;
+    opacity: 0.2;
+    width: 100vw;
+    height: 100vh;
+    z-index: 4;
+}
+
