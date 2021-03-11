@@ -1,4 +1,33 @@
 ﻿<!DOCTYPE html>
+<style>
+    .container_site {
+        background-color: #f1f2e4;
+        width: 100vw;
+        height: 100vh
+    }
+
+    .btn_layout {
+        color: white !important;
+        border-color: #d9a518 !important;
+        background-color: orange !important;
+        margin: 0px 5px;
+    }
+
+    .btn_layout:hover {
+        -webkit-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+        transform: scale(1.1);
+        transition: all 0.3s;
+     }
+
+    a:hover {
+        -webkit-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+        transform: scale(1.1);
+        transition: all 0.3s;
+    }
+
+</style>
 
 <html lang="en">
 <head>
@@ -15,46 +44,49 @@
 </head>
 
 <body>
-
-    <header>
-        <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 border-bottom bg-gradient-unique shadow-sm">
-            <div class="logo_beer rotate-n-15 text-white">
-                <i class="fas fa-beer" style="cursor: pointer;" onclick="location.href='@Url.Action("Index", "Home")'"></i>
-            </div>
-            <h5 class="my-0 mr-md-auto text-white text_unique" style="cursor: pointer;" onclick="location.href='@Url.Action("Index", "Home")'">Erlang Beer</h5>
-            <nav class="my-2 my-md-0 mr-md-3">
-                @if (ViewBag.UserId == 0)
+    <div class="container_site">
+        <header>
+            <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 border-bottom bg-gradient-unique shadow-sm">
+                <div class="logo_beer rotate-n-15 text-white">
+                    <i class="fas fa-beer" style="cursor: pointer;" onclick="location.href='@Url.Action("Index", "Home")'"></i>
+                </div>
+                <h5 class="my-0 mr-md-auto text-white text_unique" style="cursor: pointer;" onclick="location.href='@Url.Action("Index", "Home")'">Erlang Beer</h5>
+                <nav class="my-2 my-md-0 mr-md-3">
+                    @if (ViewBag.UserId == 0)
+                    {
+                        <a class="btn btn_layout" id="cadastro" data-toggle="modal" data-target="#modal_cadastro" href="#">Cadastre-se</a>
+                        <a class="btn btn_layout" id="login" data-toggle="modal" data-target="#modal_login" href="#">Entrar</a>
+                    }
+                </nav>
+                @if (ViewBag.UserId != 1)
                 {
-                    <a class="btn btn-outline-primary" id="cadastro" data-toggle="modal" data-target="#modal_cadastro" href="#">Cadastre-se</a>
-                    <a class="btn btn-outline-primary" id="login" data-toggle="modal" data-target="#modal_login" href="#">Entrar</a>
-                }
-            </nav>
-            @if (ViewBag.UserId != 1)
-            {
-                <a style="margin-right:20px;" id="carrinho" asp-action="Carrinho" asp-controller="Pedido"> <i class="fas fa-cart-arrow-down text-white" style="font-size:1.5em;"></i></a>
+                    <a style="margin-right:20px;" id="carrinho" asp-action="Carrinho" asp-controller="Pedido"> <i class="fas fa-cart-arrow-down text-white" style="font-size:1.5em;"></i></a>
 
-            }
-            @if (ViewBag.UserId == 1)
-            {
-                <a class="btn btn-outline-primary" style="margin-right: 10px;" onclick="location.href='@Url.Action("Home", "Usuario")'" href="#">Admin</a>
-            }
-            @if (ViewBag.UserId != 0)
-            {
-                <a class="btn btn-outline-primary" id="logout" href="#">Logout</a>
-            }
+                }
+                @if (ViewBag.UserId == 1)
+                {
+                    <a class="btn btn-outline-primary" style="margin-right: 10px;" onclick="location.href='@Url.Action("Home", "Usuario")'" href="#">Admin</a>
+                }
+                @if (ViewBag.UserId != 0)
+                {
+                    <a class="btn btn-outline-primary" id="logout" href="#">Logout</a>
+                }
+            </div>
+        </header>
+
+        <div class="container">
+            <main role="main" class="pb-3">
+                @RenderBody()
+            </main>
         </div>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
+
+        <footer class="border-top footer text-muted">
+            <div class="container text-center">
+                &copy; 2020 - Erlang Beer - Todos os direitos reservados.
+            </div>
+        </footer>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container text-center">
-            &copy; 2020 - Erlang Beer - Todos os direitos reservados.
-        </div>
-    </footer>
 
     <div class="modal fade" id="modal_cadastro" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
