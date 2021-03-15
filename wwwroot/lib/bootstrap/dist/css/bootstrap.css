@@ -645,9 +645,10 @@ pre code {
 }
 
 .col-3 {
-  -ms-flex: 0 0 25%;
-  flex: 0 0 25%;
-  max-width: 25%;
+    -ms-flex: 0 0 25%;
+    flex: 0 0 25%;
+    max-width: 25%;
+    justify-content: space-evenly;
 }
 
 .col-4 {
@@ -4550,17 +4551,17 @@ input[type="button"].btn-block {
 }
 
 .card {
-  position: relative;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  min-width: 0;
-  word-wrap: break-word;
-  background-color: #fff;
-  background-clip: border-box;
-  border: 1px solid rgba(0, 0, 0, 0.125);
-  border-radius: 0.25rem;
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 150px;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
 }
 
 .card > hr {
@@ -4671,33 +4672,16 @@ input[type="button"].btn-block {
 .card-deck {
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-direction: column;
-  flex-direction: column;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  padding-right: 25px;
 }
 
 .card-deck .card {
   margin-bottom: 15px;
 }
 
-@media (min-width: 576px) {
-  .card-deck {
-    -ms-flex-flow: row wrap;
-    flex-flow: row wrap;
-    margin-right: -15px;
-    margin-left: -15px;
-  }
-  .card-deck .card {
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex: 1 0 0%;
-    flex: 1 0 0%;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    margin-right: 15px;
-    margin-bottom: 0;
-    margin-left: 15px;
-  }
-}
+
 
 .card-group {
   display: -ms-flexbox;

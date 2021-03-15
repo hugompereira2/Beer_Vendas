@@ -1,87 +1,59 @@
 ﻿<!DOCTYPE html>
-<style>
-    .container_site {
-        background-color: #f1f2e4;
-        width: 100vw;
-        height: 100vh
-    }
-
-    .btn_layout {
-        color: white !important;
-        border-color: #d9a518 !important;
-        background-color: orange !important;
-        margin: 0px 5px;
-    }
-
-    .btn_layout:hover {
-        -webkit-transform: scale(1.1);
-        -ms-transform: scale(1.1);
-        transform: scale(1.1);
-        transition: all 0.3s;
-     }
-
-    a:hover {
-        -webkit-transform: scale(1.1);
-        -ms-transform: scale(1.1);
-        transform: scale(1.1);
-        transition: all 0.3s;
-    }
-
-</style>
 
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Beer_Vendas</title>
+    <title>@ViewData["Title"] - Beer Vendas</title>
     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="~/css/sb-admin-2.css" />
+    <link href="~/css/style.css" rel="stylesheet" />
     <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
     <link href="~/js/fontawesome-free/css/all.min.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,300&display=swap" rel="stylesheet">
     <script src="~/js/jquery/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ajax-unobtrusive/3.2.6/jquery.unobtrusive-ajax.js" integrity="sha512-f04GBpoqEZhbyjlRTuXeg8FIHDb+xfCJ0LVdqiN1fEl5B3jz3Z0SPe9IxDumOVdTeeXmKMcMJhb26VuGf1Laqw==" crossorigin="anonymous"></script>
 
 </head>
 
 <body>
-    <div class="container_site">
+    <div class="container-site">
         <header>
-            <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 border-bottom bg-gradient-unique shadow-sm">
-                <div class="logo_beer rotate-n-15 text-white">
-                    <i class="fas fa-beer" style="cursor: pointer;" onclick="location.href='@Url.Action("Index", "Home")'"></i>
-                </div>
-                <h5 class="my-0 mr-md-auto text-white text_unique" style="cursor: pointer;" onclick="location.href='@Url.Action("Index", "Home")'">Erlang Beer</h5>
-                <nav class="my-2 my-md-0 mr-md-3">
-                    @if (ViewBag.UserId == 0)
-                    {
+            <nav>
+                @if (ViewBag.UserId == 0)
+                {
+                    <div class="logo-group">
+                        <i class="fas fa-beer logo" style="cursor: pointer;" onclick="location.href='@Url.Action("Index", "Home")'"></i>
+                        <h5 style="cursor: pointer;" onclick="location.href='@Url.Action("Index", "Home")'">Erlang Beer</h5>
+                    </div>
+                    <div class="nav-button">
                         <a class="btn btn_layout" id="cadastro" data-toggle="modal" data-target="#modal_cadastro" href="#">Cadastre-se</a>
                         <a class="btn btn_layout" id="login" data-toggle="modal" data-target="#modal_login" href="#">Entrar</a>
-                    }
-                </nav>
-                @if (ViewBag.UserId != 1)
-                {
-                    <a style="margin-right:20px;" id="carrinho" asp-action="Carrinho" asp-controller="Pedido"> <i class="fas fa-cart-arrow-down text-white" style="font-size:1.5em;"></i></a>
+                        @if (ViewBag.UserId != 1)
+                        {
+                            <a asp-action="Carrinho" asp-controller="Pedido"> <i class="fas fa-shopping-cart car-svg"></i></a>
+
+                        }
+                        @if (ViewBag.UserId == 1)
+                        {
+                            <a class="btn btn-outline-primary" onclick="location.href='@Url.Action("Home", "Usuario")'" href="#">Admin</a>
+                        }
+                        @if (ViewBag.UserId != 0)
+                        {
+                            <a class="btn btn-outline-primary" id="logout" href="#">Logout</a>
+                        }
+                    </div>
 
                 }
-                @if (ViewBag.UserId == 1)
-                {
-                    <a class="btn btn-outline-primary" style="margin-right: 10px;" onclick="location.href='@Url.Action("Home", "Usuario")'" href="#">Admin</a>
-                }
-                @if (ViewBag.UserId != 0)
-                {
-                    <a class="btn btn-outline-primary" id="logout" href="#">Logout</a>
-                }
-            </div>
+            </nav>
         </header>
 
-        <div class="container">
-            <main role="main" class="pb-3">
-                @RenderBody()
-            </main>
-        </div>
+        <main>
+            @RenderBody()
+        </main>
 
-        <footer class="border-top footer text-muted">
-            <div class="container text-center">
+        <footer>
+            <div class="text-center">
                 &copy; 2020 - Erlang Beer - Todos os direitos reservados.
             </div>
         </footer>
