@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Hugo\\Documents\\GitHub\\Beer_Vendas\\Beer_Vendas.csproj": {}
+    "C:\\Users\\User\\Documents\\GitHub\\Beer_Vendas\\Beer_Vendas.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Hugo\\Documents\\GitHub\\Beer_Vendas\\Beer_Vendas.csproj": {
+    "C:\\Users\\User\\Documents\\GitHub\\Beer_Vendas\\Beer_Vendas.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Hugo\\Documents\\GitHub\\Beer_Vendas\\Beer_Vendas.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Documents\\GitHub\\Beer_Vendas\\Beer_Vendas.csproj",
         "projectName": "Beer_Vendas",
-        "projectPath": "C:\\Users\\Hugo\\Documents\\GitHub\\Beer_Vendas\\Beer_Vendas.csproj",
-        "packagesPath": "C:\\Users\\Hugo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Hugo\\Documents\\GitHub\\Beer_Vendas\\obj\\",
+        "projectPath": "C:\\Users\\User\\Documents\\GitHub\\Beer_Vendas\\Beer_Vendas.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\User\\Documents\\GitHub\\Beer_Vendas\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Hugo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -26,6 +26,7 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -37,6 +38,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": {
               "target": "Package",
@@ -48,7 +50,11 @@
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
-              "version": "[3.1.3, )"
+              "version": "[3.1.4, )"
+            },
+            "Microsoft.jQuery.Unobtrusive.Ajax": {
+              "target": "Package",
+              "version": "[3.2.6, )"
             },
             "Newtonsoft.Json": {
               "target": "Package",
@@ -69,12 +75,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[3.1.2, 3.1.2]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -83,7 +83,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -14,7 +14,7 @@ namespace Beer_Vendas.Controllers
 {
     public class PedidoController : Controller
     {
-        public ActionResult Solicitacao()
+        public IActionResult Solicitacao()
         {
             pedido pedido = new pedido();
             Repositorio repositorio = new Repositorio();
@@ -24,9 +24,18 @@ namespace Beer_Vendas.Controllers
 
             return View();
         }
-
         public ActionResult Carrinho()
         {
+
+            Repositorio repositorio = new Repositorio();
+
+            Usuario Usuario = new Usuario();
+            var userId = Request.Cookies["Usuario"];
+
+            ViewBag.UserId = (userId != null && userId != "0") ? int.Parse(userId) : 0;
+
+            var Usuarios = repositorio.GetUsuariosAsync();
+            ViewBag.teste = Usuarios;
             //var cookie = Request.Cookies["Usuario"];
             //if (cookie == "0" || cookie == null)
             //{
