@@ -1,2 +1,19 @@
 
 *.config
+.vs/Beer_Vendas/DesignTimeBuild/.dtbcache.v2
+.vs/Beer_Vendas/v16/.suo
+bin/Debug/netcoreapp3.1/Beer_Vendas.dll
+bin/Debug/netcoreapp3.1/Beer_Vendas.exe
+bin/Debug/netcoreapp3.1/Beer_Vendas.pdb
+bin/Debug/netcoreapp3.1/Beer_Vendas.Views.dll
+bin/Debug/netcoreapp3.1/Beer_Vendas.Views.pdb
+obj/Beer_Vendas.csproj.nuget.dgspec.json
+obj/Beer_Vendas.csproj.nuget.g.props
+obj/Debug/netcoreapp3.1/apphost.exe
+obj/Debug/netcoreapp3.1/Beer_Vendas.csprojAssemblyReference.cache
+obj/Debug/netcoreapp3.1/Beer_Vendas.dll
+obj/Debug/netcoreapp3.1/Beer_Vendas.pdb
+obj/Debug/netcoreapp3.1/Beer_Vendas.Views.dll
+obj/Debug/netcoreapp3.1/Beer_Vendas.Views.pdb
+obj/project.assets.json
+obj/project.nuget.cache
