@@ -4,61 +4,69 @@
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
+<link href="~/css/style.css" rel="stylesheet" />
+
 <div class="container-fluid">
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">Cadastrar Produto</h1>
     </div>
-    @using (Html.BeginForm("Cadastrar", "Produto", FormMethod.Post))
-    {
-        <form class="needs-validation" novalidate>
-            <div class="form-row">
-                <div class="col-md-8 mb-3">
-                    <label for="validationCustom01">Nome do Produto:</label>
-                    <input autocomplete="off" type="text" name="pro_nome" for="pro_nome" class="form-control" id="pro_nome"
-                           placeholder="ex: Coca-Cola" required="required">
-                </div>
-                <div class="col-md-2 mb-3">
-                    <label for="validationCustom01">Quantidade:</label>
-                    <input autocomplete="off" type="number" min="1" name="pro_estoque" for="pro_estoque" class="form-control" id="pro_estoque"
-                           placeholder="ex: 10" required="required">
-                </div>
-                <div class="col-md-2 mb-3">
-                    <label for="validationCustom01">Preço:</label>
-                    <input autocomplete="off" type="number" name="pro_valor" for="pro_valor" class="form-control" id="pro_valor"
-                           placeholder="ex: 10,50" required="required">
-                </div>
-                <div class="col-xl-12 mb-4">
-                    <label for="validationCustom02">Descrição:</label>
-                    <textarea autocomplete="off" type="text" name="pro_descricao" for="pro_descricao" class="form-control" id="pro_descricao"
-                              placeholder="Descrição" required="required"></textarea>
-                </div>
-                <div class="w-100"></div>
-                @*<div class="col-md-12 custom-file">
-                        <label for="validationCustom03">Escolha a imagem:</label>
-                        <input type="file" class="custom-file-input" id="inputGroupFile01"
-                               aria-describedby="inputGroupFileAddon01">
-                        <label class="custom-file-label" for="inputGroupFile01">Escolha o arquivo</label>
-                    </div>*@
+
+
+
+    <form asp-action="Cadastrar" asp-controller="Produto" method="POST" data-ajax="true" data-ajax-loading="#busy-holder" data-ajax-success="onSuccess">
+        <div style="display:none;" id="busy-holder">
+            <div  id="busy" role="status">
             </div>
-            <footer class="mb-5" style="margin-top:15%;">
-                <button class="btn btn-danger float-left" style="margin-left: 2%; width: 15%;" id="btnCancelar" onclick="location.href='@Url.Action("Index", "Home")'">
-                    Cancelar <i class="fas fa-times"></i>
-                </button>
-                <button class="btn btn-success float-right" style="margin-right: 2%; width: 15%;" id="btnConfirmar">
-                    Cadastrar <i class="fas fa-check"></i>
-                </button>
-            </footer>
-        </form>
-    }
+        </div>
+
+        <div class="form-row">
+            <div class="col-md-8 mb-3">
+                <label for="validationCustom01">Nome do Produto:</label>
+                <input autocomplete="off" type="text" name="pro_nome" for="pro_nome" class="form-control" id="pro_nome"
+                       placeholder="ex: Coca-Cola" required="required">
+            </div>
+            <div class="col-md-2 mb-3">
+                <label for="validationCustom01">Quantidade:</label>
+                <input autocomplete="off" type="number" min="1" name="pro_estoque" for="pro_estoque" class="form-control" id="pro_estoque"
+                       placeholder="ex: 10" required="required">
+            </div>
+            <div class="col-md-2 mb-3">
+                <label for="validationCustom01">Preço:</label>
+                <input autocomplete="off" type="number" step="0.10" name="pro_valor" for="pro_valor" class="form-control" id="pro_valor"
+                       placeholder="ex: 10,50" required="required">
+            </div>
+            <div class="col-xl-12 mb-4">
+                <label for="validationCustom02">Descrição:</label>
+                <textarea autocomplete="off" type="text" name="pro_descricao" for="pro_descricao" class="form-control" id="pro_descricao"
+                          placeholder="Descrição" required="required"></textarea>
+            </div>
+            <div class="w-100"></div>
+            @*<div class="col-md-12 custom-file">
+                    <label for="validationCustom03">Escolha a imagem:</label>
+                    <input type="file" class="custom-file-input" id="inputGroupFile01"
+                           aria-describedby="inputGroupFileAddon01">
+                    <label class="custom-file-label" for="inputGroupFile01">Escolha o arquivo</label>
+                </div>*@
+        </div>
+        <footer class="mb-5" style="margin-top:15%;">
+            <button class="btn btn-danger float-left" style="margin-left: 2%; width: 15%;" id="btnCancelar" onclick="location.href='@Url.Action("Index", "Home")'">
+                Cancelar <i class="fas fa-times"></i>
+            </button>
+            <button class="btn btn-success float-right" style="margin-right: 2%; width: 15%;" id="btnConfirmar">
+                Cadastrar <i class="fas fa-check"></i>
+            </button>
+        </footer>
+    </form>
+
+
 
 </div>
 
-
-
-
 <script src="~/js/sweetalert2.all.min.js"></script>
 <script src="~/js/jquery/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ajax-unobtrusive/3.2.6/jquery.unobtrusive-ajax.js" integrity="sha512-f04GBpoqEZhbyjlRTuXeg8FIHDb+xfCJ0LVdqiN1fEl5B3jz3Z0SPe9IxDumOVdTeeXmKMcMJhb26VuGf1Laqw==" crossorigin="anonymous"></script>
+
 
 <script>
     //$('#btnConfirmar').click(function () {
@@ -74,5 +82,14 @@
     //            swal.fire("Deleted!", "Your imaginary file has been deleted.", "success")
     //    })
     //});
+
+    function onSuccess(Object) {
+        if (Object.sucesso == true) {
+            window.location.reload(true);
+        }
+        else {
+            alert(Object.sucesso);
+        }
+    }
 
 </script>

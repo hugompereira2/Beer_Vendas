@@ -1,16 +1,302 @@
-  .background-img{
-      background-image: url(img/ice.jpg);
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-      background-position: center center;
-      background-size: cover;
-  }
-.navbar_fixed{
-    width: 100%; 
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100vh;
+    font-family: "Source Sans Pro";
+}
+
+html {
+    font-size: 62.5%;
+}
+
+h4 {
+    font-size: 3rem !important;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+.background-img {
+    background-image: url(img/ice.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+    background-size: cover;
+}
+
+.navbar_fixed {
+    width: 100%;
     background-color: white;
     border: 1000px;
 }
-.logo_beer{
-  font-size: 2rem; 
-  margin-right: 2em;
+
+.title-table {
+    margin-top: 40px;
+    padding-top: 8px;
+    border: 2px solid gray;
+    text-indent: 5px;
+    background-color: #C8C8C8;
+    margin-bottom: 0px;
+    height: 3rem !important;
+}
+
+.result {
+    padding: 11px 8px 0px 0px;
+    border: 2px solid gray;
+    text-indent: 5px;
+    background-color: #C8C8C8;
+    margin-bottom: 0px;
+    height: 3rem !important;
+}
+
+#busy {
+    position: fixed;
+    left: 50%;
+    top: 35%;
+    z-index: 1000;
+    height: 200px;
+    width: 200px;
+    font-size: 60px;
+    display: inline-block;
+    vertical-align: text-bottom;
+    border: 0.25em solid currentColor;
+    border-right-color: transparent;
+    border-radius: 50%;
+    -webkit-animation: spinner-border .75s linear infinite;
+    animation: spinner-border .75s linear infinite;
+}
+
+#busy-holder {
+    position: absolute;
+    background-color: grey;
+    opacity: 0.2;
+    width: 100vw;
+    height: 100vh;
+    z-index: 4;
+}
+
+.btn_layout {
+    color: white !important;
+    border-color: #d9a518 !important;
+    background-color: orange !important;
+    margin: 0px 0.8rem;
+}
+
+    .btn_layout:hover {
+        -webkit-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+        transform: scale(1.1);
+        transition: all 0.3s;
+    }
+
+a:hover {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+    transition: all 0.3s;
+    color: white !important;
+}
+
+.container-site {
+    display: grid;
+    background-color: #f1f2e4;
+    width: 100vw;
+    height: 100vh;
+    grid-template-columns: 1fr 6fr;
+    grid-template-rows: 8vh 87vh 5vh;
+    grid-template-areas: "header header"
+        "main main"
+        "footer footer";
+}
+
+header {
+    background-image: linear-gradient(180deg, rgb(252, 186, 3) 10%, rgb(262, 120, 25) 100%);
+    background-size: cover;
+    grid-area: header;
+    min-height: 80px;
+}
+
+.logo {
+    transform: rotate(-15deg);
+    font-size: 2.9rem;
+    margin-right: 1rem;
+    color: #fff !important;
+    cursor: pointer;
+}
+
+.car-svg {
+    font-size: 3rem;
+    color: #ede9da;
+}
+
+main {
+    width: 100%;
+    max-width: 1400px;
+    grid-area: main;
+    margin-top: 2rem;
+    display: flex !important;
+    justify-self: center;
+}
+
+footer {
+    grid-area: footer;
+    font-size: 1.5rem;
+}
+
+nav {
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
+    width: 95%;
+    max-width: 1400px;
+    margin: auto;
+}
+
+nav div a {
+    font-size: 1.8rem !important;
+    padding: 24px;
+}
+
+.logo-group {
+    display: flex;
+}
+
+.nav-button {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.filter {
+    display: flex;
+    flex-direction: row;
+    background-color: red;
+    width: 250px;
+    height: 250px;
+}
+
+nav h5 {
+    font-size: 2.4rem;
+    font-weight: 800;
+    color: white;
+}
+
+.toggle-hamburger {
+    display: none;
+}
+
+@media (max-width:1500px) {
+    col-sm-3 {
+        margin-left: -15px;
+    }
+}
+
+@media (max-width: 765px) {
+    html {
+        font-size: 50%;
+    }
+
+    .col-sm-3 {
+        flex: 0 0 40% !important;
+    }
+
+    .card-deck {
+        display:flex;
+        justify-content:space-evenly;
+    }
+
+    .card {
+        width: 100% !important;
+    }
+
+    header {
+        min-height: 60px;
+    }
+
+@media (max-width: 350px) {
+    html {
+        font-size: 50%;
+    }
+
+    .col-sm-3 {
+        flex: 0 0 40% !important;
+    }
+
+    .card-deck {
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    .card {
+        width: 100% !important;
+    }
+
+    header {
+        min-height: 60px;
+    }
+}
+}
+/*
+@media (max-width: 1200px){
+    .toggle-hamburger {
+        display: flex;
+        font-size: 1.9rem;
+        cursor: pointer;
+    }
+    .nav-button {
+        display:none;
+    }
+
+}*/
+
+.price-tag {
+    color: #6c757d !important;
+    font-weight: 400 !important;
+    font-size: 3rem !important;
+}
+
+strong {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+small {
+    font-size: 1.5rem !important;
+    margin-bottom: 10px;
+}
+
+.card-flex {
+    flex: 1;
+}
+
+.card-header-flex {
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 0;
+    background-color: rgba(0, 0, 0, 0.03);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+input {
+    text-indent: 5px;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+}
+
+.inputComprar {
+    width: 50%;
+    height: 50%;
+}
+
+button {
+    font-size: 1.8rem !important;
 }

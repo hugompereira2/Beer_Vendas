@@ -10,11 +10,11 @@ using System.Threading.Tasks;
 
 namespace Beer_Vendas.Models
 {
-    public class UsuarioRepositorio
+    public class Repositorio
     {
         HttpClient cliente = new HttpClient();
 
-        public UsuarioRepositorio()
+        public Repositorio()
         {
 
             cliente.BaseAddress = new Uri("http://localhost:3000/");
