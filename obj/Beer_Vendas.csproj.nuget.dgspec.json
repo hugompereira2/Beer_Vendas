@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\User\\Documents\\GitHub\\Beer_Vendas\\Beer_Vendas.csproj": {}
+    "C:\\Users\\hmpereira\\Documents\\GitHub\\Beer_Vendas\\Beer_Vendas.csproj": {}
   },
   "projects": {
-    "C:\\Users\\User\\Documents\\GitHub\\Beer_Vendas\\Beer_Vendas.csproj": {
+    "C:\\Users\\hmpereira\\Documents\\GitHub\\Beer_Vendas\\Beer_Vendas.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\Documents\\GitHub\\Beer_Vendas\\Beer_Vendas.csproj",
+        "projectUniqueName": "C:\\Users\\hmpereira\\Documents\\GitHub\\Beer_Vendas\\Beer_Vendas.csproj",
         "projectName": "Beer_Vendas",
-        "projectPath": "C:\\Users\\User\\Documents\\GitHub\\Beer_Vendas\\Beer_Vendas.csproj",
-        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\Documents\\GitHub\\Beer_Vendas\\obj\\",
+        "projectPath": "C:\\Users\\hmpereira\\Documents\\GitHub\\Beer_Vendas\\Beer_Vendas.csproj",
+        "packagesPath": "C:\\Users\\hmpereira\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\hmpereira\\Documents\\GitHub\\Beer_Vendas\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\hmpereira\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -26,7 +26,6 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
-            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -38,7 +37,6 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": {
               "target": "Package",
@@ -83,7 +81,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
         }
       }
     }

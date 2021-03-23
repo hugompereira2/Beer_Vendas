@@ -224,20 +224,12 @@
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Perfil
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Configurações
-                                </a>
-                                <a class="dropdown-item" href="#">
+                                <a id="change-password" class="dropdown-item" href="#">
                                     <i class="fas fa-key fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Mudar Senha
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                <a class="dropdown-item" id="logout" href="#" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Sair
                                 </a>
@@ -254,6 +246,35 @@
         </div>
     </div>
 
+    <div class="modal fade" id="modal_change_password" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Login</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="inputEmail">Senha Antiga</label>
+                        <input type="email" class="form-control" id="inputEmail" name="usu_email" required="required">
+                    </div>
+                    <div class="form-group">
+                        <div class="form-group">
+                            <label for="inputPassword">Senha Nova</label>
+                            <input type="password" class="form-control" id="inputPassword" name="usu_senha" required="required">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Fechar</button>
+                        <button type="submit" class="btn btn-primary" id="confirm_login">Entrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="~/js/jquery/jquery.min.js"></script>
     <script src="~/js/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- Core plugin JavaScript-->
@@ -262,5 +283,14 @@
     <script src="~/js/sb-admin-2.js"></script>
     <!-- Page level plugins -->
     <script src="~/js/chart.js/Chart.min.js"></script>
+
+    <script>
+        $('#logout').click(function () {
+            window.location.href = '@Url.Action("Sair", "Home")';
+        });
+        $('#change-password').click(function () {
+            $('#modal_change_password').modal('show');
+        });
+    </script>
 </body>
 </html>
