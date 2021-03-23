@@ -9682,9 +9682,8 @@ a:focus {
 }
 
 .bg-gradient-unique {
-  background-color: #13294B;
-  background-image: linear-gradient(180deg, rgb(5, 63, 104) 10%, rgb(16, 43, 83) 100%);
-  background-size: cover;
+    background-image: linear-gradient(180deg, rgb(262, 120, 25) 10%, rgb(252, 186, 3) 100%);
+    background-size: cover;
 }
 
 .bg-gradient-secondary {
