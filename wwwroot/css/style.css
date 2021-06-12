@@ -139,10 +139,9 @@ header {
 main {
     width: 100%;
     max-width: 1400px;
-    grid-area: main;
-    margin: 0 auto;
-    margin-top: 2rem;
+    margin: 2rem auto;
     background-color: #f1f2e4 !important;
+    padding-bottom: 5px;
 }
 
 .footer-site {
@@ -347,6 +346,33 @@ button {
     position: absolute;
     font-size: 40px;
     font-weight: 600;
+}
+
+.grid-card {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 48px 15px;
+    margin-bottom: 20px;
+    margin: 2rem auto;
+}
+
+.card-beer {
+    display: flex;
+    width:90%;
+    justify-content: center;
+    align-self: center; 
+}
+
+.card-body-beer {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    box-shadow: 0.125rem 0.25rem rgb(0 0 0 / 8%) !important;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
 }
 
 @keyframes beer {

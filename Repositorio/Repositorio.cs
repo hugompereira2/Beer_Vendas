@@ -17,7 +17,7 @@ namespace Beer_Vendas.Models
         public Repositorio()
         {
 
-            cliente.BaseAddress = new Uri("http://localhost:3000/");
+            cliente.BaseAddress = new Uri("https://tcc-nodejs-mysql.herokuapp.com/");
 
             cliente.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
 
@@ -56,7 +56,7 @@ namespace Beer_Vendas.Models
         //Listar todos os Pedidos (API ONLINE)
         public void PostProdutos(Produto produtos)
         {
-            WebRequest request = WebRequest.Create("http://localhost:3000/Produto");
+            WebRequest request = WebRequest.Create("https://tcc-nodejs-mysql.herokuapp.com/Produto");
             request.Method = "POST";
             request.ContentType = "Application/json";
             string json = "{\"Nome: " + produtos.pro_nome + ",\"Descricao: " + produtos.pro_descricao + ",\"Valor: " + produtos.pro_valor + ",\"Estoque: " + produtos.pro_estoque + "\"}";

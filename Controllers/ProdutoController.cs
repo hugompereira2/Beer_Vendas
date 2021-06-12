@@ -19,10 +19,6 @@ namespace Beer_Vendas.Controllers
 
             var Produtos = repositorio.GetProdutosAsync();
 
-            //foreach (var item in Produtos.Result)
-            //{
-
-            //}
             ViewBag.Produtos = Produtos;
 
             return View();

@@ -30,9 +30,6 @@
                         Usuario
                     </th>
                     <th class="align-middle">
-                        Senha
-                    </th>
-                    <th class="align-middle">
                         Ações
                     </th>
                 </tr>
@@ -40,7 +37,7 @@
             <tbody>
                 @foreach (var item in usuarios)
                 {
-                    <tr data-codigo="@item.usu_id" data-ds="@item.usu_nome">
+                    <tr data-codigo="1" data-ds="1">
                         <td class="text-center active">
                             @item.usu_id
                         </td>
@@ -53,22 +50,6 @@
                         <td class="text-center">
                             @item.usu_login
                         </td>
-                        <td class="text-center">
-                            @item.usu_senha
-                        </td>
-                        @*<td class="text-center">
-                                @if (item.X_FINALIZADO)
-                                {
-                                    <span class="badge badge-info" value="1">Finalizado</span>
-                                }
-                                else
-                                {
-                                    <span class="badge badge-warning" value="0">Em Andamento</span>
-                                }
-                            </td>*@
-                        @*<td class="text-left">
-                                @item.DT_CADASTRO.ToShortDateString()
-                            </td>*@
                         <td>
                             <button type="button" class="btn btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Ações <span class="caret"></span>

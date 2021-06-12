@@ -18,10 +18,7 @@
             <thead class="thead-light">
                 <tr class="bg-light">
                     <th class="align-middle">
-                        #
-                    </th>
-                    <th class="align-middle">
-                        Cliente
+                        Cliente ID
                     </th>
                     <th class="align-middle">
                         Data
@@ -30,7 +27,7 @@
                         Valor
                     </th>
                     <th class="align-middle">
-                        Quantidade
+                        Quantidade Total
                     </th>
                     <th class="align-middle">
                         Situação
@@ -43,38 +40,33 @@
             <tbody>
                 @foreach (var item in pedidos)
                 {
-                    <tr data-codigo="@item.ped_id" data-ds="@item.ped_cli_id">
-                        <td class="text-center active">
-                            @item.ped_id
-                        </td>
-                        <td class="text-left">
-                            @item.ped_cli_id
-                        </td>
-                        <td class="text-left">
-                            @item.ped_dtinclusao
+                    <tr data-codigo="@item.ped_id">
+                        <td class="text-center">
+                            @item.ped_usu_id
                         </td>
                         <td class="text-center">
-                            @item.ped_vltotal
+                            @item.created_at.ToShortDateString()
+                        </td>
+                        <td class="text-center">
+                            R$ @item.ped_vltotal
                         </td>
                         <td class="text-center">
                             @item.ped_qtditens
                         </td>
                         <td class="text-center">
-                            @item.ped_situacao
+                            @if (item.ped_situacao == 'F')
+                            {
+                                <span class="badge badge-info">Finalizado</span>
+                            }
+                            else if (item.ped_situacao == 'A')
+                            {
+                                <span class="badge badge-warning">Em Andamento</span>
+                            }
+                            else
+                            {
+                                <span class="badge badge-danger">Cancelado</span>
+                            }
                         </td>
-                        @*<td class="text-center">
-                                @if (item.X_FINALIZADO)
-                                {
-                                    <span class="badge badge-info" value="1">Finalizado</span>
-                                }
-                                else
-                                {
-                                    <span class="badge badge-warning" value="0">Em Andamento</span>
-                                }
-                            </td>*@
-                        @*<td class="text-left">
-                                @item.DT_CADASTRO.ToShortDateString()
-                            </td>*@
                         <td>
                             <button type="button" class="btn btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Ações <span class="caret"></span>
