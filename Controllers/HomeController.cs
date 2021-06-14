@@ -21,7 +21,7 @@ namespace Beer_Vendas.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index()
+        public async Task<ActionResult> Index()
         {
             Repositorio repositorio = new Repositorio();
 
@@ -29,42 +29,22 @@ namespace Beer_Vendas.Controllers
             Base64 img = new Base64();
             Produto produto = new Produto();
 
-            //var Usuarios = repositorio.GetUsuariosAsync();
-            //ViewBag.teste = Usuarios;
+            var teste = repositorio.GetUsuariosAsync();
+            ViewBag.teste = teste;
 
 
             var userId = Request.Cookies["Usuario"];
 
-            ViewBag.UserId = (userId != null && userId != "0") ? int.Parse(userId) : 0;
+            ViewBag.UserId = (userId == null) ? 2 : 1;
 
-            var Usuarios = repositorio.GetUsuariosAsync();
+            var Usuarios = await repositorio.GetUsuariosAsync();
             ViewBag.teste = Usuarios;
 
 
-            var Produtos = repositorio.GetProdutosAsync();
+            var Produtos = await repositorio.GetProdutosAsync();
 
-            //foreach (var item in Produtos.Result)
-            //{
-
-            //}
             ViewBag.Produtos = Produtos;
 
-            return View();
-        }
-        public IActionResult Catalogo()
-        {
-            return View();
-        }
-        public IActionResult Sobre()
-        {
-            return View();
-        }
-        public IActionResult Contato()
-        {
-            return View();
-        }
-        public IActionResult Privacy()
-        {
             return View();
         }
 

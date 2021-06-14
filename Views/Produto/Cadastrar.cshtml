@@ -12,9 +12,9 @@
 
 
 
-    <form asp-action="Cadastrar" asp-controller="Produto" method="POST" data-ajax="true" data-ajax-loading="#busy-holder" data-ajax-success="onSuccess">
+    <form asp-action="Cadastrar" asp-controller="Produto" enctype="multipart/form-data" method="POST" data-ajax="true" data-ajax-loading="#busy-holder" data-ajax-success="onSuccess">
         <div style="display:none;" id="busy-holder">
-            <div  id="busy" role="status">
+            <div id="busy" role="status">
             </div>
         </div>
 
@@ -31,7 +31,7 @@
             </div>
             <div class="col-md-2 mb-3">
                 <label for="validationCustom01">Preço:</label>
-                <input autocomplete="off" type="number" step="0.10" name="pro_valor" for="pro_valor" class="form-control" id="pro_valor"
+                <input autocomplete="off" type="text" name="pro_valor" for="pro_valor" class="form-control numeric" id="pro_valor"
                        placeholder="ex: 10,50" required="required">
             </div>
             <div class="col-xl-12 mb-4">
@@ -40,12 +40,12 @@
                           placeholder="Descrição" required="required"></textarea>
             </div>
             <div class="w-100"></div>
-            @*<div class="col-md-12 custom-file">
-                    <label for="validationCustom03">Escolha a imagem:</label>
-                    <input type="file" class="custom-file-input" id="inputGroupFile01"
-                           aria-describedby="inputGroupFileAddon01">
-                    <label class="custom-file-label" for="inputGroupFile01">Escolha o arquivo</label>
-                </div>*@
+            <div class="col-md-12 custom-file">
+                <label class="custom-file-label" id="fileName" for="inputGroupFile01">Escolha o arquivo</label>
+                <input type="file" class="custom-file-input" id="imagem" name="imagem"
+                       aria-describedby="inputGroupFileAddon01">
+
+            </div>
         </div>
         <footer class="mb-5" style="margin-top:15%;">
             <button class="btn btn-danger float-left" style="margin-left: 2%; width: 15%;" id="btnCancelar" onclick="location.href='@Url.Action("Index", "Home")'">
@@ -89,5 +89,21 @@
             alert(Object.sucesso);
         }
     }
+
+    $('#imagem').change(function () {
+        var fileInput = document.getElementById('imagem');
+        var reader = new FileReader();
+/*        reader.readAsDataURL(fileInput.files[0]);*/
+        $('#fileName').text(fileInput.files[0].name);
+
+
+        //reader.onload = function () {
+        //    $('#imagem').val();
+        //    console.log(reader.result);//base64encoded string
+        //};
+        //reader.onerror = function (error) {
+        //    console.log('Error: ', error);
+        //};
+    });
 
 </script>

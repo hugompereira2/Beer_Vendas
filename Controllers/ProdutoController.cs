@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Beer_Vendas.Models;
@@ -30,17 +31,29 @@ namespace Beer_Vendas.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Cadastrar(produto produto)
+        public ActionResult Cadastrar(produto produto, IFormFile imagem)
         {
-            System.Threading.Thread.Sleep(3000);
+            //System.Threading.Thread.Sleep(3000);
             Repositorio repositorio = new Repositorio();
             Retorno ret = new Retorno();
 
             try
             {
-                //repositorio.PostProdutos(produto);
-                ret.Mensagem = "Cadastro com Sucesso!";
-                ret.Sucesso = true;
+                if (imagem.Length > 0)
+                {
+                    using (var ms = new MemoryStream())
+                    {
+                        imagem.CopyTo(ms);
+                        var fileBytes = ms.ToArray();
+
+                        //produto.pro_imagem = fileBytes;
+                    }
+                    
+                    repositorio.PostProdutos(produto);
+                    ret.Mensagem = "Cadastro com Sucesso!";
+                    ret.Sucesso = true;
+                    return View();
+                }
             }
             catch
             {

@@ -17,6 +17,10 @@
     margin-right: 2em;
 }
 
+.dropdown-item:hover {
+    color: black !important;
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -121,6 +125,7 @@ a:hover {
 header {
     background-image: linear-gradient(180deg, rgb(252, 186, 3) 10%, rgb(262, 120, 25) 100%);
     background-size: cover;
+    height: 60px;
 }
 
 .logo {
@@ -155,8 +160,9 @@ nav {
     align-items: center;
     justify-content: space-between;
     width: 95%;
+    height: 100%;
     max-width: 1400px;
-    margin: auto;
+    margin:auto auto;
 }
 
 nav div a {
@@ -348,7 +354,13 @@ button {
     font-weight: 600;
 }
 
+.user_img {
+    width: 40px;
+    height: 40px;
+}
+
 .grid-card {
+    width: 90%;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     grid-gap: 48px 15px;

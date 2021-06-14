@@ -9,6 +9,7 @@
     <link href="~/css/style.css" rel="stylesheet" />
     <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
     <link href="~/js/fontawesome-free/css/all.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,300&display=swap" rel="stylesheet">
     <script src="~/js/jquery/jquery.min.js"></script>
@@ -27,31 +28,33 @@
     <div class="container-site">
         <header>
             <nav>
-                @if (ViewBag.UserId == 0)
-                {
-                    <div class="logo-group">
-                        <i class="fas fa-beer logo" style="cursor: pointer;" onclick="location.href='@Url.Action("Index", "Home")'"></i>
-                        <h5 style="cursor: pointer;" onclick="location.href='@Url.Action("Index", "Home")'">Erlang Beer</h5>
-                    </div>
-                    <div class="nav-button">
+                <div class="logo-group">
+                    <i class="fas fa-beer logo" style="cursor: pointer;" onclick="location.href='@Url.Action("Index", "Home")'"></i>
+                    <h5 style="cursor: pointer;" onclick="location.href='@Url.Action("Index", "Home")'">Erlang Beer</h5>
+                </div>
+                <div class="nav-button">
+                    @if (ViewBag.UserId == 2 || ViewBag.UserId == 0)
+                    {
                         <a class="btn btn_layout" id="cadastro" data-toggle="modal" data-target="#modal_cadastro" href="#">Cadastre-se</a>
                         <a class="btn btn_layout" id="login" data-toggle="modal" data-target="#modal_login" href="#">Entrar</a>
-                        @if (ViewBag.UserId != 1)
-                        {
-                            <a asp-action="Carrinho" asp-controller="Pedido"> <i class="fas fa-shopping-cart car-svg"></i></a>
+                        <a asp-action="Carrinho" asp-controller="Pedido"> <i class="fas fa-shopping-cart car-svg"></i></a>
+                    }
+                    else
+                    {
+                        <div class="dropdown show">
+                            <a style="background-color:transparent; border:none" class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img id="dropdownMenuLink" class="user_img" src="~/user.svg">
+                            </a>
 
-                        }
-                        @if (ViewBag.UserId == 1)
-                        {
-                            <a class="btn btn-outline-primary" onclick="location.href='@Url.Action("Home", "Usuario")'" href="#">Admin</a>
-                        }
-                        @if (ViewBag.UserId != 0)
-                        {
-                            <a class="btn btn-outline-primary" id="logout" href="#">Logout</a>
-                        }
-                    </div>
-
-                }
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <a class="dropdown-item" asp-action="Home" asp-controller="Usuario">Minha Àrea</a>
+                                <a class="dropdown-item" asp-action="Carrinho" asp-controller="Pedido">Meu Carrinho</a>
+                                <a class="dropdown-item" id="changePassword" href="#">Alterar Senha</a>
+                                <a class="dropdown-item" href="#" id="logout">Sair</a>
+                            </div>
+                        </div>
+                    }
+                </div>
             </nav>
         </header>
 
@@ -59,6 +62,35 @@
             @RenderBody()
         </main>
 
+    </div>
+
+    <div class="modal fade" id="modal_change_password" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Login</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="inputEmail">Senha Antiga</label>
+                        <input type="password" class="form-control" id="senhaAntiga" name="senhaAntiga" required="required">
+                    </div>
+                    <div class="form-group">
+                        <div class="form-group">
+                            <label for="inputPassword">Senha Nova</label>
+                            <input type="password" class="form-control" id="senhaNova" name="senhaNova" required="required">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Fechar</button>
+                        <button type="submit" class="btn btn-primary" id="confirm_login">Entrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
 
@@ -76,21 +108,23 @@
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="inputNomeCadastro">Nome</label>
-                                <input type="text" class="form-control" id="inputNomeCadastro">
+                                <input type="text" class="form-control" name="usu_nome" id="inputNomeCadastro">
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="inputSobrenomeCadastro">Sobrenome</label>
-                                <input type="text" class="form-control" id="inputSobrenomeCadastro">
+                                <input type="text" class="form-control" name="usu_sobrenome" id="inputSobrenomeCadastro">
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label for="inputEmailCadastro">E-mail</label>
-                            <input type="email" class="form-control" id="inputEmailCadastro" required="required">
+                        <div class="form-row">
+                            <div class="form-group col-12">
+                                <label for="inputEmailCadastro">E-mail</label>
+                                <input type="email" class="form-control" name="usu_email" id="inputEmailCadastro" required="required">
+                            </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="inputPasswordCadastro">Senha</label>
-                                <input type="password" class="form-control" id="inputPasswordCadastro" required="required">
+                                <input type="password" class="form-control" name="usu_senha" id="inputPasswordCadastro" required="required">
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="inputConfirmCadastro">Confirmar Senha</label>
@@ -99,7 +133,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Fechar</button>
-                            <button type="submit" class="btn btn-primary" id="confirmModalCadastro">Cadastrar</button>
+                            <button asp-action="Cadastrar" asp-controller="Usuario" type="submit" class="btn btn-primary" id="confirmModalCadastro">Cadastrar</button>
                         </div>
                     </form>
                 </div>
@@ -107,7 +141,7 @@
         </div>
     </div>
 
-    <form asp-action="Login" asp-controller="Home" method="POST" data-ajax="true" data-ajax-update="modal_login" data-ajax-success="onSuccess">
+    <form asp-action="Login" asp-controller="Usuario" method="POST" data-ajax="true" data-ajax-update="modal_login" data-ajax-success="onSuccess" data-ajax-failure="onFailure">
 
         <div class="modal fade" id="modal_login" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
@@ -121,7 +155,7 @@
                     <div class="modal-body">
                         <div class="form-group">
                             <label for="inputEmail">E-mail</label>
-                            <input type="email" class="form-control" id="inputEmail" name="usu_email" required="required">
+                            <input type="text" class="form-control" id="inputEmail" name="usu_email" required="required">
                         </div>
                         <div class="form-group">
                             <div class="form-group">
@@ -150,14 +184,22 @@
 </body>
 </html>
 <script>
+    function onFailure() {
 
-    function onSuccess(Object) {
-        if (Object.sucesso == true) {
-            window.location.reload(true);
+        if ($('#error-message').length < 1) {
+            var background = "color:red";
+            var id = `error-message`;
+            $('#inputPassword').after("<strong id=" + id + " style=" + background + ">Usuario e senha incorretos!<strong/>");
         }
-        else {
-            alert('teste');
-        }
+
+    }
+
+    $('#changePassword').click(function () {
+        $('#modal_change_password').modal('show');
+    });
+
+    function onSuccess() {
+        window.location.reload(true);
     }
 
     $('#logout').click(function () {
@@ -189,13 +231,13 @@
         });
     }*@
 
-    $("#confirmModalCadastro").click(function () {
-        var senha = $('#inputPassword').val();
-        var senhaConfirm = $('#inputConfirm').val();
-        if (senha != senhaConfirm) {
-            alert("Senhas diferentes!");
-            return
-        }
-    });
+    //$("#confirmModalCadastro").click(function () {
+    //    var senha = $('#inputPassword').val();
+    //    var senhaConfirm = $('#inputConfirm').val();
+    //    if (senha != senhaConfirm) {
+    //        alert("Senhas diferentes!");
+    //        return
+    //    }
+    //});
 </script>
 

@@ -37,16 +37,42 @@ namespace Beer_Vendas.Models
             return new List<Usuario>();
 
         }
+
+        public async Task<bool> GetLogin(Login Login)
+        {
+            HttpClient client = new HttpClient();
+
+            string json = JsonConvert.SerializeObject(Login);
+
+            var request = new HttpRequestMessage
+            {
+                Method = HttpMethod.Get,
+                RequestUri = new Uri("https://tcc-nodejs-mysql.herokuapp.com/usuarioLogin"),
+                Content = new StringContent(json, Encoding.UTF8, "Application/json"),
+            };
+
+            var response = await client.SendAsync(request).ConfigureAwait(false);
+            response.EnsureSuccessStatusCode();
+
+            var responseBody = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
+
+
+            if (responseBody != "[]")
+                return true;
+            else
+                return false;
+
+        }
         //Listar todos os Produtos (API ONLINE)
-        public async Task<IEnumerable<Produto>> GetProdutosAsync()
+        public async Task<List<Produto>> GetProdutosAsync()
         {
             HttpResponseMessage response = await cliente.GetAsync("produto");
 
             if (response.IsSuccessStatusCode)
             {
-                Base64 img = new Base64();
                 var dados = await response.Content.ReadAsStringAsync();
-                var Produtos = JsonConvert.DeserializeObject<IEnumerable<Produto>>(dados);
+                var Produtos = JsonConvert.DeserializeObject<List<Produto>>(dados);
+
                 return Produtos;
             }
 
@@ -59,7 +85,30 @@ namespace Beer_Vendas.Models
             WebRequest request = WebRequest.Create("https://tcc-nodejs-mysql.herokuapp.com/Produto");
             request.Method = "POST";
             request.ContentType = "Application/json";
-            string json = "{\"Nome: " + produtos.pro_nome + ",\"Descricao: " + produtos.pro_descricao + ",\"Valor: " + produtos.pro_valor + ",\"Estoque: " + produtos.pro_estoque + "\"}";
+            string json = JsonConvert.SerializeObject(produtos);
+            var byteArray = Encoding.UTF8.GetBytes(json);
+            request.ContentLength = byteArray.Length;
+
+            Stream stream = request.GetRequestStream();
+            stream.Write(byteArray, 0, byteArray.Length);
+            stream.Close();
+
+            var response = (HttpWebResponse)request.GetResponse();
+
+            if (response.StatusCode == HttpStatusCode.Created)
+                Console.Write("deu certo");
+            else
+                Console.Write("Falhou");
+        }
+
+        public void CriarUsuario(Usuario usuario)
+        {
+            usuario.usu_login = usuario.usu_email;
+            usuario.usu_telefone = "014958545484";
+            WebRequest request = WebRequest.Create("https://tcc-nodejs-mysql.herokuapp.com/Usuario");
+            request.Method = "POST";
+            request.ContentType = "Application/json";
+            string json = JsonConvert.SerializeObject(usuario);
             var byteArray = Encoding.UTF8.GetBytes(json);
             request.ContentLength = byteArray.Length;
 
