@@ -9,6 +9,7 @@ using Beer_Vendas.Models;
 using Converte_Object_Json;
 using System.Buffers.Text;
 using pedido = Beer_Vendas.Models.Pedido;
+using Newtonsoft.Json;
 
 namespace Beer_Vendas.Controllers
 {
@@ -22,8 +23,50 @@ namespace Beer_Vendas.Controllers
             var pedidos = repositorio.GetPedidosAsync();
             ViewBag.pedidos = pedidos;
 
+            var userId = Request.Cookies["Usuario"];
+
+            if (userId == "0")
+            {
+                ViewBag.userId = "0";
+                ViewBag.Nome = "Admin";
+                return View();
+            }
+            else if (userId == "1")
+            {
+                ViewBag.userId = "1";
+                ViewBag.Nome = "Felipe";
+                return View();
+            }
+
             return View();
         }
+
+        public IActionResult SolicitacaoUser()
+        {
+            pedido pedido = new pedido();
+            Repositorio repositorio = new Repositorio();
+
+            var pedidos = repositorio.GetPedidosAsync();
+            ViewBag.pedidos = pedidos;
+
+            var userId = Request.Cookies["Usuario"];
+
+            if (userId == "0")
+            {
+                ViewBag.userId = "0";
+                ViewBag.Nome = "Admin";
+                return View();
+            }
+            else if (userId == "1")
+            {
+                ViewBag.userId = "1";
+                ViewBag.Nome = "Felipe";
+                return View();
+            }
+
+            return View();
+        }
+
         public ActionResult Carrinho()
         {
 

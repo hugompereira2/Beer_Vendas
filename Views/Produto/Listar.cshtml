@@ -40,6 +40,8 @@
             <tbody>
                 @foreach (var item in produtos)
                 {
+                    item.pro_valor = item.pro_valor.Replace(".", ",");
+
                     <tr data-codigo="@item.pro_id" data-ds="@item.pro_nome">
                         <td class="text-center active">
                             @item.pro_id

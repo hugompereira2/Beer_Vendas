@@ -18,7 +18,7 @@
             <thead class="thead-light">
                 <tr class="bg-light">
                     <th class="align-middle">
-                        Cliente ID
+                        Pedido ID
                     </th>
                     <th class="align-middle">
                         Data
@@ -42,7 +42,7 @@
                 {
                     <tr data-codigo="@item.ped_id">
                         <td class="text-center">
-                            @item.ped_usu_id
+                            @item.ped_id
                         </td>
                         <td class="text-center">
                             @item.created_at.ToShortDateString()
@@ -60,7 +60,7 @@
                             }
                             else if (item.ped_situacao == 'A')
                             {
-                                <span class="badge badge-warning">Em Andamento</span>
+                                <span class="badge badge-warning">Processando</span>
                             }
                             else
                             {
@@ -73,7 +73,10 @@
                             </button>
                             <ul class="dropdown-menu dropdown-menu-right">
                                 <li class="text-center mt-3 mb-3">
-                                    <a class="alterarStatus" style="cursor: pointer;">Visualizar</a>
+                                    <a class="visualizarPedido" style="cursor: pointer; text-decoration:none; color:#858796">Visualizar</a>
+                                </li>
+                                <li class="text-center mb-3">
+                                    <a class="alterarStatus" style="cursor: pointer;">Finalizar</a>
                                 </li>
                                 <li class="text-center mb-3">
                                     <a class="alterarStatus" style="cursor: pointer;">Cancelar</a>
@@ -87,7 +90,83 @@
         </table>
     </div>
 
+    <div class="modal fade" id="modal_visualizar_pedido" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Detalhes do Pedido</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                    <div class="modal-body">
+                        <div class="table-responsive">
+                            <table class="table table-sm table-bordered table-hover text-center datatable-custom" id="table-result">
+                                <thead class="thead-light">
+                                    <tr class="bg-light">
+                                        <th class="align-middle">
+                                            Item
+                                        </th>
+                                        <th class="align-middle">
+                                            Quantidade
+                                        </th>
+                                        <th class="align-middle">
+                                            Valor
+                                        </th>
+                                        <th class="align-middle">
+                                            Valor Total
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody class="result">
+                                </tbody>
+                                <tfoot></tfoot>
+                            </table>
+                        </div>
+                    </div>
+                
+            </div>
+        </div>
+    </div>
+
 </div>
 <script>
+
+    $(document).ready(function () {
+
+        $('.visualizarPedido').click(function () {
+            var ID = $(this).parent().parent().parent().parent().attr('data-codigo');
+
+            // AJAX request
+            $.ajax({
+                url: 'https://tcc-nodejs-mysql.herokuapp.com/pedidoitens/' + ID,
+                type: 'get',
+                success: function (response) {
+
+                    var obj = JSON.parse(JSON.stringify(response));
+
+                    $.each(obj, function (index, value) {
+                        var html = `<tr data-codigo="${obj[index].pei_pro_id}">
+                                        <td class="text-center">
+                                            ${obj[index].pro_nome}
+                                        </td>
+                                        <td class="text-center">
+                                            ${obj[index].pei_qtd}
+                                        </td>
+                                        <td class="text-center">
+                                            ${obj[index].pei_vlunitario}
+                                        </td>
+                                        <td class="text-center">
+                                            ${obj[index].pei_vltotal}
+                                        </td>
+                                    </tr> `
+
+                        $('.result').append(html);
+                    }); 
+                }
+            });
+        });
+    });
+
 </script>
 

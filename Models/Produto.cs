@@ -13,8 +13,7 @@ namespace Beer_Vendas.Models
         public string pro_descricao { get; set; }
         public string pro_valor { get; set; }
         public int pro_estoque { get; set; }
-        //[JsonProperty("pro_imagem")]
-        //public byte[] pro_imagem { get; set; }
+        public string pro_imagem { get; set; }
         //public byte[] pro_imagem_src { get; set; }
 
     }

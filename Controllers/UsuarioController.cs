@@ -16,12 +16,14 @@ namespace Beer_Vendas.Controllers
 
             if (userId == "0")
             {
+                ViewBag.userId = "0";
                 ViewBag.Nome = "Admin";
                 return View();
             }
             else if (userId == "1")
             {
-                ViewBag.Nome = "Fernando";
+                ViewBag.userId = "1";
+                ViewBag.Nome = "Felipe";
                 return View();
             }
             else
@@ -45,7 +47,7 @@ namespace Beer_Vendas.Controllers
             option.Expires = DateTime.Now.AddMinutes(3600);
             if (response)
             {
-                if (login.usu_login.Contains("admin"))
+                if (login.usu_login.Contains("admin") || login.usu_login.Contains("hugo"))
                 {
                     Response.Cookies.Append("Usuario", "0", option);    
                 }
@@ -71,6 +73,21 @@ namespace Beer_Vendas.Controllers
             var usuarios = repositorio.GetUsuariosAsync();
             ViewBag.usuarios = usuarios;
 
+            var userId = Request.Cookies["Usuario"];
+
+            if (userId == "0")
+            {
+                ViewBag.userId = "0";
+                ViewBag.Nome = "Admin";
+                return View();
+            }
+            else if (userId == "1")
+            {
+                ViewBag.userId = "1";
+                ViewBag.Nome = "Felipe";
+                return View();
+            }
+
             return View();
         }
 
@@ -78,23 +95,6 @@ namespace Beer_Vendas.Controllers
         public ActionResult Create()
         {
             return View();
-        }
-
-        // POST: Usuario/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
-        {
-            try
-            {
-                // TODO: Add insert logic here
-
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
         }
 
         public ActionResult Cadastrar(Usuario usuario)
@@ -115,11 +115,6 @@ namespace Beer_Vendas.Controllers
                 throw;
             }
 
-        }
-        // GET: Usuario/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
         }
     }
 }

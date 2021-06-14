@@ -1,0 +1,81 @@
+﻿@model Beer_Vendas.Models.Pedido;
+@{
+    ViewData["Title"] = "Solicitacao";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+
+    var pedidos = ViewBag.pedidos.Result;
+}
+
+<!-- Begin Page Content -->
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Listagem de Solicitações</h1>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-sm table-bordered table-hover text-center datatable-custom" id="table-result">
+            <thead class="thead-light">
+                <tr class="bg-light">
+                    <th class="align-middle">
+                        Data
+                    </th>
+                    <th class="align-middle">
+                        Valor
+                    </th>
+                    <th class="align-middle">
+                        Situação
+                    </th>
+                    <th class="align-middle">
+                        Ações
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in pedidos)
+                {
+                    <tr data-codigo="@item.ped_id">
+                        <td class="text-center">
+                            @item.created_at.ToShortDateString()
+                        </td>
+                        <td class="text-center">
+                            R$ @item.ped_vltotal
+                        </td>
+                        <td class="text-center">
+                            @if (item.ped_situacao == 'F')
+                            {
+                                <span class="badge badge-info">Finalizado</span>
+                            }
+                            else if (item.ped_situacao == 'A')
+                            {
+                                <span class="badge badge-warning">Em Andamento</span>
+                            }
+                            else
+                            {
+                                <span class="badge badge-danger">Cancelado</span>
+                            }
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Ações <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-right">
+                                <li class="text-center mt-3 mb-3">
+                                    <a class="visualizarPedido" style="cursor: pointer;">Visualizar</a>
+                                </li>
+                                <li class="text-center mb-3">
+                                    <a class="alterarStatus" style="cursor: pointer;">Cancelar</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+            <tfoot></tfoot>
+        </table>
+    </div>
+
+</div>
+<script>
+</script>
+

@@ -19,17 +19,47 @@ namespace Beer_Vendas.Controllers
             produto produto = new produto();
 
             var Produtos = repositorio.GetProdutosAsync();
-
             ViewBag.Produtos = Produtos;
 
+            var userId = Request.Cookies["Usuario"];
+
+            if (userId == "0")
+            {
+                ViewBag.userId = "0";
+                ViewBag.Nome = "Admin";
+                return View();
+            }
+            else if (userId == "1")
+            {
+                ViewBag.userId = "1";
+                ViewBag.Nome = "Felipe";
+                return View();
+            }
+
             return View();
         }
 
-        // GET: Produto/Details/5
+        [HttpGet]
         public ActionResult Cadastrar()
         {
+            var userId = Request.Cookies["Usuario"];
+
+            if (userId == "0")
+            {
+                ViewBag.userId = "0";
+                ViewBag.Nome = "Admin";
+                return View();
+            }
+            else if (userId == "1")
+            {
+                ViewBag.userId = "1";
+                ViewBag.Nome = "Felipe";
+                return View();
+            }
+
             return View();
         }
+
         [HttpPost]
         public ActionResult Cadastrar(produto produto, IFormFile imagem)
         {
@@ -45,6 +75,8 @@ namespace Beer_Vendas.Controllers
                     {
                         imagem.CopyTo(ms);
                         var fileBytes = ms.ToArray();
+                        string s = Convert.ToBase64String(fileBytes);
+                        produto.pro_imagem = s;
 
                         //produto.pro_imagem = fileBytes;
                     }
@@ -52,7 +84,21 @@ namespace Beer_Vendas.Controllers
                     repositorio.PostProdutos(produto);
                     ret.Mensagem = "Cadastro com Sucesso!";
                     ret.Sucesso = true;
-                    return View();
+
+                    var userId = Request.Cookies["Usuario"];
+
+                    if (userId == "0")
+                    {
+                        ViewBag.userId = "0";
+                        ViewBag.Nome = "Admin";
+                        return View();
+                    }
+                    else if (userId == "1")
+                    {
+                        ViewBag.userId = "1";
+                        ViewBag.Nome = "Felipe";
+                        return View();
+                    }
                 }
             }
             catch
@@ -61,12 +107,6 @@ namespace Beer_Vendas.Controllers
             }
 
             return Json(ret);
-        }
-
-        // GET: Produto/Create
-        public ActionResult Create()
-        {
-            return View();
         }
 
         // POST: Produto/Create
@@ -86,50 +126,5 @@ namespace Beer_Vendas.Controllers
             }
         }
 
-        // GET: Produto/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: Produto/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                // TODO: Add update logic here
-
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: Produto/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: Produto/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
     }
 }

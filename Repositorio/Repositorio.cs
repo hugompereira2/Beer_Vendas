@@ -63,6 +63,7 @@ namespace Beer_Vendas.Models
                 return false;
 
         }
+
         //Listar todos os Produtos (API ONLINE)
         public async Task<List<Produto>> GetProdutosAsync()
         {
@@ -82,7 +83,7 @@ namespace Beer_Vendas.Models
         //Listar todos os Pedidos (API ONLINE)
         public void PostProdutos(Produto produtos)
         {
-            WebRequest request = WebRequest.Create("https://tcc-nodejs-mysql.herokuapp.com/Produto");
+            WebRequest request = WebRequest.Create("https://tcc-nodejs-mysql.herokuapp.com/produto");
             request.Method = "POST";
             request.ContentType = "Application/json";
             string json = JsonConvert.SerializeObject(produtos);
@@ -99,6 +100,25 @@ namespace Beer_Vendas.Models
                 Console.Write("deu certo");
             else
                 Console.Write("Falhou");
+        }
+
+        public async Task<List<Pedido>> ListarPedido(Usuario usuario)
+        {
+
+            string json = JsonConvert.SerializeObject(usuario);
+
+            StringContent data = new StringContent(json, Encoding.UTF8, "application/json");
+
+            var url = "https://tcc-nodejs-mysql.herokuapp.com/pedidoLatestpurchases";
+            var client = new HttpClient();
+
+            var response = await client.PostAsync(url, data);
+
+            string result = await response.Content.ReadAsStringAsync();
+
+            List<Pedido> Pedidos = JsonConvert.DeserializeObject<List<Pedido>>(result);
+
+            return Pedidos;
         }
 
         public void CriarUsuario(Usuario usuario)

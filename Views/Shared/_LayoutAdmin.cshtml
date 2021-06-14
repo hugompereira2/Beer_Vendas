@@ -69,46 +69,66 @@
             </li>
 
             <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProdutos" aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-shopping-bag"></i>
-                    <span>Produtos</span>
-                </a>
-                <div id="collapseProdutos" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Opções para Produtos:</h6>
-                        <a class="collapse-item text-center font-size-submenu click" onclick="location.href='@Url.Action("Cadastrar", "Produto")'">Cadastrar</a>
-                        <a class="collapse-item text-center font-size-submenu click" onclick="location.href='@Url.Action("Listar", "Produto")'">Listar</a>
-                    </div>
-                </div>
-            </li>
 
-            <!-- Nav Item - Utilities Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePedidos" aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-file-signature"></i>
-                    <span>Pedidos</span>
-                </a>
-                <div id="collapsePedidos" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Opções para Pedidos:</h6>
-                        <a class="collapse-item text-center font-size-submenu click" onclick="location.href='@Url.Action("Solicitacao", "Pedido")'">Solicitações</a>
+            @if (ViewBag.userId == "0")
+            {
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProdutos" aria-expanded="true" aria-controls="collapseTwo">
+                        <i class="fas fa-shopping-bag"></i>
+                        <span>Produtos</span>
+                    </a>
+                    <div id="collapseProdutos" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <h6 class="collapse-header">Opções para Produtos:</h6>
+                            <a class="collapse-item text-center font-size-submenu click" onclick="location.href='@Url.Action("Cadastrar", "Produto")'">Cadastrar</a>
+                            <a class="collapse-item text-center font-size-submenu click" onclick="location.href='@Url.Action("Listar", "Produto")'">Listar</a>
+                        </div>
                     </div>
-                </div>
-            </li>
+                </li>
 
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUsuarios" aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-users"></i>
-                    <span>Usuarios</span>
-                </a>
-                <div id="collapseUsuarios" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Opções para Usuários:</h6>
-                        <a class="collapse-item text-center font-size-submenu click" onclick="location.href='@Url.Action("Listar", "Usuario")'">Listar</a>
+                <!-- Nav Item - Utilities Collapse Menu -->
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePedidos" aria-expanded="true" aria-controls="collapseUtilities">
+                        <i class="fas fa-file-signature"></i>
+                        <span>Pedidos</span>
+                    </a>
+                    <div id="collapsePedidos" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <h6 class="collapse-header">Opções para Pedidos:</h6>
+                            <a class="collapse-item text-center font-size-submenu click" onclick="location.href='@Url.Action("Solicitacao", "Pedido")'">Solicitações</a>
+                        </div>
                     </div>
-                </div>
-            </li>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUsuarios" aria-expanded="true" aria-controls="collapseUtilities">
+                        <i class="fas fa-users"></i>
+                        <span>Usuarios</span>
+                    </a>
+                    <div id="collapseUsuarios" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <h6 class="collapse-header">Opções para Usuários:</h6>
+                            <a class="collapse-item text-center font-size-submenu click" onclick="location.href='@Url.Action("Listar", "Usuario")'">Listar</a>
+                        </div>
+                    </div>
+                </li>
+            }
+            else
+            {
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProdutos" aria-expanded="true" aria-controls="collapseTwo">
+                        <i class="fas fa-shopping-bag"></i>
+                        <span>Meus Pedidos</span>
+                    </a>
+                    <div id="collapseProdutos" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <h6 class="collapse-header text-center">Opções:</h6>
+                            <a class="collapse-item text-center font-size-submenu click" onclick="location.href='@Url.Action("SolicitacaoUser", "Pedido")'">Listar</a>
+                        </div>
+                    </div>
+                </li>
+            }
+
 
             <!-- Divider -->
             <li>
@@ -178,18 +198,18 @@
                                 <i class="rounded-circle fas fa-user"></i>
                             </a>
                             <!-- Dropdown - User Information -->
-                        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                            <a class="dropdown-item" asp-action="Carrinho" asp-controller="Pedido">Meu Carrinho</a>
-                            <div class="dropdown-divider"></div>
-                            <a id="change-password" class="dropdown-item" href="#">
-                                Alterar Senha
-                            </a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" id="logout" href="#" onclick="Logout()" data-toggle="modal" data-target="#logoutModal">
-                                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                Sair
-                            </a>
-                        </div>
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                                <a class="dropdown-item" asp-action="Carrinho" asp-controller="Pedido">Meu Carrinho</a>
+                                <div class="dropdown-divider"></div>
+                                <a id="change-password" class="dropdown-item" href="#">
+                                    Alterar Senha
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" id="logout" href="#" onclick="Logout()" data-toggle="modal" data-target="#logoutModal">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Sair
+                                </a>
+                            </div>
                         </li>
 
                     </ul>
@@ -258,8 +278,13 @@
             }
         }
 
+
         $('#change-password').click(function () {
             $('#modal_change_password').modal('show');
+        });
+
+        $('.visualizarPedido').click(function () {
+            $('#modal_visualizar_pedido').modal('show');
         });
     </script>
 </body>
