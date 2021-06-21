@@ -53,16 +53,32 @@
 </div>
 
 <script>
+
+    $('#btnConfirmar').click(function () {
+        Swal.fire({
+            reverseButtons: true,
+            title: 'Atenção!',
+            html: '<b>Confirmar Pedido?</b>',
+            icon: 'warning',
+            confirmButtonText: 'Confirmar',
+            showCancelButton: 'Cancelar'
+        }).then((result) => {
+            if (result.value)
+                swal.fire("Sucesso!", "Pedido Efetuado!", "success")
+        })
+     });
+
     $('.quantidade').on("click change", function () {
         var proID = $(this).prop('id');
         var split = proID.split("_");
         var ID = split[1];
-        
+
+
         var quantidade = $(this).val();
-        
+
 
         var Selectorvalor = "#valor_" + ID;
-        var SelectorvalorTotal = "#valorTotal_" + ID;        
+        var SelectorvalorTotal = "#valorTotal_" + ID;
 
         var valor = $(Selectorvalor).attr("data-valor").replace(',', '.');
         var final = valor * quantidade;
@@ -74,11 +90,11 @@
             sum = 0;
 
         $.each(items, function (value) {
-            var itemValue = parseFloat(items[value].innerHTML.replace("R$", "").replace(",","."));
+            var itemValue = parseFloat(items[value].innerHTML.replace("R$", "").replace(",", "."));
             sum += !isNaN(itemValue.toFixed(2)) ? itemValue : 0;
         });
 
-        cashOut.text("Total: R$ " + sum.toFixed(2).replace(".",","));
+        cashOut.text("Total: R$ " + sum.toFixed(2).replace(".", ","));
     });
 </script>
 
